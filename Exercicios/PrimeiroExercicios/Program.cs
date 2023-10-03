@@ -25,7 +25,6 @@
             // Declaração + Atribuição + Comando
             char op = char.Parse(Console.ReadLine());
             double math = 0;
-            Console.WriteLine("Especifique o operador.");
             // Controle de Fluxo | Swicth
             switch (op)
             {
