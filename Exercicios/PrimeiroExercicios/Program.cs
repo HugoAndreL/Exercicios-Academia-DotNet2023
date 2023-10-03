@@ -42,7 +42,7 @@
                     math = num1 / num2;
                     break;
             };
-            Console.WriteLine("---------------------------");
+            Console.WriteLine("------------------------------");
             Console.WriteLine($"A operação do número {num1} com o operador {op} ao número {num2} equivale à: {math}");
             Console.WriteLine("----- Fim do Exercício 1 -----");
 
