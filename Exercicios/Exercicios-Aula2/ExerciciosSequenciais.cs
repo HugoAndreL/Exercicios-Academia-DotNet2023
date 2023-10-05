@@ -10,9 +10,7 @@ namespace Exercicios_Aula2
     {
         static void Main(string[] args)
         {
-            bool exit = false;
-            
-            while (!exit)
+            while (true)
             {
                 Console.WriteLine("Selecione um Exercicio: (Digite apenas o número do exercicio)\n" +
                 "-------------------------\n" +
