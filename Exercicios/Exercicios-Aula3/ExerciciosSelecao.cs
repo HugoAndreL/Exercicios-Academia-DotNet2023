@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Linq.Expressions;
 using System.Reflection.Metadata.Ecma335;
 using System.Threading.Channels;
@@ -395,21 +396,152 @@ namespace Exercicios_Aula2
              * menor que 80, avisá-lo que é preciso diminuir 2 unidades de insulina. Se a média for maior que
              * 150, avisá-lo que será necessário adicionar 2 unidades de insulina.
              */
+            Console.WriteLine("***** Exercicios 9 - Aula 3 *****");
+
+            float jejum1, jejum2, jejum3;
+            string risco;
+
+            Console.WriteLine("Insira a primeira glicemia em jejum:");
+            jejum1 = float.Parse(Console.ReadLine());
+
+            Console.WriteLine("Insura a segunda glicemia em jejum:");
+            jejum2 = float.Parse(Console.ReadLine());
+
+            Console.WriteLine("Insira a terceira glicemia em jejum:");
+            jejum3 = float.Parse(Console.ReadLine());
+
+            Console.WriteLine("----------------------------");
+            if (jejum1 < 65)
+                Console.WriteLine("1º dia: Risco de hipoglicemia");
+            else if (jejum1 > 250)
+                Console.WriteLine("1º dia: Risco de hiperglicemia");
+            
+            Console.WriteLine("----------------------------");
+            if (jejum2 < 65)
+                Console.WriteLine("2º dia: Risco de hipoglicemia");
+            else if (jejum2 > 250)
+                Console.WriteLine("2º dia: Risco de hiperglicemia");
+
+            Console.WriteLine("----------------------------");
+            if (jejum3 < 65)
+                Console.WriteLine("2º dia: Risco de hipoglicemia");
+            else if (jejum3 > 250)
+                Console.WriteLine("2º dia: Risco de hiperglicemia");
+
+            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
         static void ex10() 
-        { 
-        
+        {
+            /*
+             * 10 - Faça um programa no VS que receba dados de dois atletas (nome, idade e altura).
+             * O programa deve mostrar os dados do atleta mais novo e mais alto.
+             */
+            Console.WriteLine("***** Exercicio 10 - Aula 3 *****");
+
+            string nome1, nome2;
+            int idade1, idade2;
+            float altura1, altura2;
+
+            Console.WriteLine("Digite o nome do 1º atleta:");
+            nome1 = Console.ReadLine();
+
+            Console.WriteLine("insira a idade do 1º atleta:");
+            idade1 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Insira a altura do 1º atleta:");
+            altura1 = float.Parse(Console.ReadLine());
+            
+            Console.WriteLine("Digite o nome do 2º atleta:");
+            nome2 = Console.ReadLine();
+
+            Console.WriteLine("Insira a idade do 2º atleta:");
+            idade2 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Insira a altura do 1º atleta:");
+            altura2 = float.Parse(Console.ReadLine());
+
+            if (idade1 < idade2)
+                Console.WriteLine($"Atleta mais novo: {nome1}, Idade: {idade1} anos");
+            else if (idade2 < idade1)
+                Console.WriteLine($"Atleta mais novo: {nome2}, Idade: {idade2} anos");
+            else
+                Console.WriteLine("Os dois atletas têm a mesma idade.");
+
+            if (altura1 > altura2)
+                Console.WriteLine($"Atleta mais alto: {nome1}, Altura: {altura1} metros");
+            else if (altura2 > altura1)
+                Console.WriteLine($"Atleta mais alto: {nome2}, Altura: {altura2} metros");
+            else
+                Console.WriteLine("Os dois atletas têm a mesma altura.");
+
+            Console.WriteLine("----- Fim do Programa -----\n");
         }
 
         static void ex11()
         {
+            /*
+             * 11 - Faça um programa no VS que receba uma hora, dividida em 2 variáveis (uma para hora e outra para minutos).
+             * O programa deve exibir se a hora digitada está ou não válida. 
+             * Lembre que usaremos o padrão de hora com 24h, de 0 a 23.
+             */
+            Console.WriteLine("***** Exercicio 11 - Aula 3 *****");
 
+            int h, m;
+            bool validaHora, validaMinutos;
+
+            Console.WriteLine("Digite a hora (0 a 23):");
+            h = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Digite os minutos (0 a 59):");
+            m = int.Parse(Console.ReadLine());
+
+            validaHora = h >= 0 && h <= 23;
+            validaMinutos = m >= 0 && m <= 59;
+
+            if (validaHora && validaMinutos)
+                Console.WriteLine("Hora válida.");
+            else
+                Console.WriteLine("Hora inválida.");
+
+            Console.WriteLine("----- Fim do Programa -----\n");
         }
 
         static void ex12() 
         {
+            /*
+             * 12 - Elabore um programa em VS que leia as variáveis "codigo" e "numeroHoras", respectivamente código e 
+             * número de horas trabalhadas de um operário. Na sequência, calcule o salário sabendo-se que ele ganha 
+             * R$ 10,00 por hora. Quando o número de horas exceder a 50 calcule o excesso de pagamento 
+             * armazenando-o na variável "extra", caso contrário zerar tal variável. A hora excedente de trabalho vale R$ 20,00. 
+             * No final do processamento, exibir o salário total e o salário excedente do operário.
+             */
+            Console.WriteLine("***** Exercicio 12 - Aula 3 *****");
+            
+            int codigo;
+            float numeroHoras;
+            double salHora = 10.0, salTotal, extra = 0;
 
+            Console.WriteLine("Insira o código do operário:");
+            codigo = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Insira o número de horas trabalhadas:");
+            numeroHoras = float.Parse(Console.ReadLine());
+
+            salTotal = numeroHoras * salHora;
+            if (numeroHoras > 50)
+            {
+                extra = (numeroHoras - 50) * 20.0;
+                numeroHoras = 50;
+            }
+
+            salTotal += extra;
+
+            Console.WriteLine("----------------------------");
+            Console.WriteLine($"Código do operário: {codigo}");
+            Console.WriteLine($"Salário total: R$ {salTotal:F2}");
+            Console.WriteLine($"Salário excedente: R$ {extra:F2}");
+            Console.WriteLine("----- Fim do Programa -----\n");
         }
 
         static void ex13()
