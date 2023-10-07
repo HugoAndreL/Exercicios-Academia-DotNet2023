@@ -1,10 +1,4 @@
-﻿using System.Drawing;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.ConstrainedExecution;
-using System.Runtime.Intrinsics.X86;
-using System.Threading.Channels;
-
-namespace Exercicios_Aula2
+﻿namespace Exercicios_Aula2
 {
     internal class ExerciciosSequenciais
     {

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Linq.Expressions;
-using System.Reflection.Metadata.Ecma335;
-using System.Threading.Channels;
-
-namespace Exercicios_Aula2
+﻿namespace Exercicios_Aula2
 {
     internal class ExerciciosSelecao
     {

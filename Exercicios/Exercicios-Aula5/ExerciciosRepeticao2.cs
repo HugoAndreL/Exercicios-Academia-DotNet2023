@@ -1,9 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Runtime.ConstrainedExecution;
-using System.Runtime.Intrinsics.X86;
-
-namespace Exercicios_Aula5
+﻿namespace Exercicios_Aula5
 {
     internal class ExerciciosRepeticao2
     {
@@ -13,26 +8,27 @@ namespace Exercicios_Aula5
             {
                 Console.WriteLine("Selecione um Exercicio: (Digite apenas o número do exercicio)\n" +
                 "-------------------------\n" +
-                "1 = Exercicio 1 - Aula 2\n" +
-                "2 = Exercicio 2 - Aula 2\n" +
-                "3 = Exercicio 3 - Aula 2\n" +
-                "4 = Exercicio 4 - Aula 2\n" +
-                "5 = Exercicio 5 - Aula 2\n" +
-                "6 = Exercicio 6 - Aula 2\n" +
-                "7 = Exercicio 7 - Aula 2\n" +
-                "8 = Exercicio 8 - Aula 2\n" +
-                "9 = Exercicio 9 - Aula 2\n" +
-                "10 = Exercicio 10 - Aula 2\n" +
-                "11 = Exercicio 11 - Aula 2\n" +
-                "12 = Exercicio 12 - Aula 2\n" +
-                "13 = Exercicio 13 - Aula 2\n" +
-                "14 = Exercicio 14 - Aula 2\n" +
-                "15 = Exercicio 15 - Aula 2\n" +
-                "16 = Exercicio 16 - Aula 2\n" +
-                "17 = Exercicio 17 - Aula 2\n" +
-                "18 = Exercicio 18 - Aula 2\n" +
-                "19 = Exercicio 19 - Aula 2\n" +
-                "20 = Exercicio 20 - Aula 2\n" +
+                "1 = Exercicio 1 - Aula 5\n" +
+                "2 = Exercicio 2 - Aula 5\n" +
+                "3 = Exercicio 3 - Aula 5\n" +
+                "4 = Exercicio 4 - Aula 5\n" +
+                "5 = Exercicio 5 - Aula 5\n" +
+                "6 = Exercicio 6 - Aula 5\n" +
+                "7 = Exercicio 7 - Aula 5\n" +
+                "8 = Exercicio 8 - Aula 5\n" +
+                "9 = Exercicio 9 - Aula 5\n" +
+                "10 = Exercicio 10 - Aula 5\n" +
+                "11 = Exercicio 11 - Aula 5\n" +
+                "12 = Exercicio 12 - Aula 5\n" +
+                "13 = Exercicio 13 - Aula 5\n" +
+                "14 = Exercicio 14 - Aula 5\n" +
+                "15 = Exercicio 15 - Aula 5\n" +
+                "16 = Exercicio 16 - Aula 5\n" +
+                "17 = Exercicio 17 - Aula 5\n" +
+                "18 = Exercicio 18 - Aula 5\n" +
+                "19 = Exercicio 19 - Aula 5\n" +
+                "20 = Exercicio 20 - Aula 5\n" +
+                "21 = Exercicio 21 - Aula 5\n" +
                 "--------------------------");
                 int input = int.Parse(Console.ReadLine());
                 Console.Write("\n");
@@ -102,6 +98,9 @@ namespace Exercicios_Aula5
                     case 20:
                         ex20("***** Exercicio 20 - Aula 5 *****");
                         break;
+                    case 21:
+                        ex21("***** Exercicio 21 - Aula 5 ******");
+                        break;
                 }
                 Console.WriteLine("Deseja limpar o console: (S - Sim; N - Não)");
                 char cls = char.Parse(Console.ReadLine());
@@ -115,7 +114,7 @@ namespace Exercicios_Aula5
             }
         }
 
-        static void ex1(string? msg) 
+        static void ex1(string? msg)
         {
             /*
              * 1. Faça um programa em VS que solicite um número inteiro positivo ao usuário, validando a entrada de dados 
@@ -132,7 +131,7 @@ namespace Exercicios_Aula5
                 string input = Console.ReadLine();
 
                 if (int.TryParse(input, out n) && n > 0)
-                    break; 
+                    break;
                 else
                     Console.WriteLine("Número inválido. Por favor, digite um número inteiro positivo.");
             }
@@ -243,7 +242,7 @@ namespace Exercicios_Aula5
                 $"Votos para Zeca: {zeca}");
             Console.WriteLine("----- Fim do Exercicio -----\n");
         }
-        
+
         static void ex5(string msg)
         {
             /*
@@ -284,7 +283,7 @@ namespace Exercicios_Aula5
                 }
                 if (input != "ZECA" && input != "JOAO" && input != "BRANCO" && input != "FIM")
                     nulo += 1;
-                
+
                 Console.Write("\n");
             }
 
@@ -491,7 +490,7 @@ namespace Exercicios_Aula5
                 Console.WriteLine("-------------------------");
 
                 Console.Write("\n");
-                
+
                 switch (sexo)
                 {
                     case 'M' or 'm':
@@ -509,7 +508,7 @@ namespace Exercicios_Aula5
 
                 if (sexo == 'F' || sexo == 'f')
                 {
-                    sumF += idade; 
+                    sumF += idade;
                     mediaTotal = sumF / f;
                 }
             }
@@ -539,11 +538,11 @@ namespace Exercicios_Aula5
             while (true)
             {
                 Console.Write($"Digite a nota do aluno (-1 para encerrar): ");
-                nota = double.Parse(Console.ReadLine());                
+                nota = double.Parse(Console.ReadLine());
 
                 sum += nota;
 
-                if(nota != -1)
+                if (nota != -1)
                 {
                     quantAlunos++;
                     Console.WriteLine("----------------------------");
@@ -577,55 +576,392 @@ namespace Exercicios_Aula5
             int sum = 0;
 
             for (int i = 1; i <= 100; i++)
-            {
                 sum += i;
-            }
 
             Console.WriteLine("----------------------------");
             Console.WriteLine($"A soma dos cem primeiros números inteiros é: {sum}");
             Console.WriteLine("----- Fim do Exercicio -----\n");
-
-
         }
 
         static void ex13(string msg)
         {
+            /* 
+             * 13. Elaborar um programa que apresente o somatório dos valores pares existentes 
+             * entre 1 e 500.
+             */
             Console.WriteLine(msg);
+
+            int sum = 0;
+
+            for (int i = 1; i <= 500; i++)
+                if (i % 2 == 0)
+                    sum += i;
+
+            Console.WriteLine("----------------------------");
+            Console.WriteLine($"A soma dos números par entre 1 e 500 é: {sum}");
+            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
         static void ex14(string msg)
         {
+            // 14. Mostrar as potências de 2 variando de 0 a 10.
             Console.WriteLine(msg);
+
+            double result = 1;
+
+            Console.WriteLine("----------------------------");
+
+            Console.WriteLine($"As potências de 2 variando de 0 e 10 é:");
+
+            for (int e = 0; e <= 10; e++)
+            {
+                Console.WriteLine($"2^{e} = {result}");
+                result *= 2;
+            }
+
+            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
         static void ex15(string msg)
         {
+            /*
+             * 15. Ler 4 valores referentes a notas escolares de um aluno e imprimir uma mensagem dizendo se ele está aprovado 
+             * ou reprovado, após ter calculado sua média ponderando, considerando pesos 2, 1, 2, e 4, respectivamente. 
+             * Considerar nota 7,0 como mínima para aprovação.
+             */
             Console.WriteLine(msg);
+
+            string status;
+            double mediaPond;
+            // Vetores
+            double[] notas = new double[4];
+            int[] w = { 2, 1, 2, 4 };
+
+            for (int i = 0, j = 1; i <= 3 && j <= 4; i++, j++)
+            {
+                Console.WriteLine($"Insira a {j}º nota:");
+                notas[i] = double.Parse(Console.ReadLine());
+            }
+
+            mediaPond = (notas[0] * w[0] + notas[1] * w[1] + notas[2] * w[2] + notas[3] * w[3]) / (w[0] + w[1] + w[2] + w[3]);
+
+            if (mediaPond >= 7.0)
+                status = "Aprovado";
+            else status = "Reprovado";
+
+            Console.WriteLine("----------------------------");
+            Console.WriteLine(status);
+            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
         static void ex16(string msg)
         {
+            /*
+             * 16 - Escreva um algoritmo que leia o placar de um jogo da primeira fase da copa do Brasil. Caso o time de fora tenha ganho o jogo por mais de 2 gols de diferença, mostre
+             * na tela uma mensagem indicando que o time de fora já se classificou para a próxima fase. Caso contrário, mostre uma mensagem indicando que os dois times irão se
+             * enfrentar novamente em um novo jogo.
+             * ex: time da casa 4 x 3 time de fora, mostra "Os dois times se enfrentarão em um novo jogo"
+             * ex2: time da casa 1 x 3 time de fora, mostra "O time de fora já se classificou"
+             * plus: caso ocorra um segundo jogo, leia o placar desse novo jogo e então diga quem passou de fase.
+             */
             Console.WriteLine(msg);
+
+            int placarCasa, placarFora;
+
+            for (int i = 1; true; i++)
+            {
+                Console.Write($"Insira o placar do {i}º jogo - Time da casa: ");
+                placarCasa = int.Parse(Console.ReadLine());
+
+                Console.Write($"Insira o placar do {i}º jogo - Time de fora: ");
+                placarFora = int.Parse(Console.ReadLine());
+
+                if (placarFora - placarCasa >= 2)
+                {
+                    Console.WriteLine("O time de fora já se classificou para a próxima fase");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Os dois times se enfrentarão em um novo jogo");
+                    Console.WriteLine("----------------------------");
+                    continue;
+                }
+            }
+            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
         static void ex17(string msg)
         {
+            /*
+             * 17 - Faça um algoritmo que leia o tamanho dos lados de um triangulo (lado a, b e c), e então diga se esses lados podem ou não formar um triangulo. Para que os lados,
+             * formem um triângulo, todos os lados devem ser menores ou iguais a soma dos outros dois lados. Caso os lados formem um triangulo, diga se o mesmo é equilátero (todos
+             * os lados iguais), isoceles (somente 2 lados são iguais) ou escaleno (os 3 lados são diferentes).
+             */
             Console.WriteLine(msg);
+
+            double a, b, c;
+            bool verificaTriangulo;
+
+            Console.WriteLine("Insira o lado A do triangulo:");
+            a = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Insira o lado B do triangulo:");
+            b = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Insira o lado C do triangulo:");
+            c = double.Parse(Console.ReadLine());
+
+            verificaTriangulo = a + b > c && a + c > b && b + c > a;
+
+            if (verificaTriangulo)
+            {
+                Console.WriteLine("----------------------------");
+                if (a == b && b == c)
+                    Console.WriteLine("Os lados formam um triângulo equilátero");
+                else if (a == b || a == c || b == c)
+                    Console.WriteLine("Os lados formam um triângulo isósceles");
+                else if (a != b && b != c)
+                    Console.WriteLine("Os lados formam um triângulo escaleno");
+                Console.WriteLine("----- Fim do Exercicio -----\n");
+            }
+            else
+            {
+                Console.WriteLine("Os lados não formam um triângulo.");
+                Console.WriteLine("----- Fim do Exercicio -----\n");
+            }
         }
 
         static void ex18(string msg)
         {
             Console.WriteLine(msg);
+
+            double[] vals = new double[3];
+            int maiorVal = 0;
+
+            for (int i = 1; i < 3; i++)
+            {
+                Console.Write($"Valor {i}: ");
+                vals[i] = double.Parse(Console.ReadLine());
+
+                for (int j = 1; j < 3; j++)
+                    if (vals[j] > maiorVal)
+                        maiorVal = (int)vals[j];
+            }
+            
+            Console.WriteLine("----------------------------");
+            Console.WriteLine($"O maior valor entre os valores informados é {maiorVal}");
+            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
         static void ex19(string msg)
         {
+            // 19 - Ajuste o exercício 18 de maneira que mostre os valores informados em ordem crescente.
             Console.WriteLine(msg);
+
+            double[] vals = new double[3];
+            int maiorVal = 0;
+
+            for (int i = 1; i < 3; i++)
+            {
+                Console.Write($"Valor {i}: ");
+                vals[i] = double.Parse(Console.ReadLine());
+
+                for (int j = 1; j < 3; j++)
+                    if (vals[j] > maiorVal)
+                        maiorVal = (int)vals[j];
+            }
+
+            Array.Sort(vals);
+
+            Console.WriteLine("----------------------------");
+
+            Console.WriteLine($"Valores digitados:");
+
+            /*
+             * Foreach
+             * Em vez de usar o for decidi usar o foreach por ser mais prático
+             * Ele pega um valor de um vetor ou um array
+             * - Crie uma variavel e depois use o in e color o vetor ou array
+             * Exemplo:
+             * Foreach (string item in items) {}
+             */
+            foreach (double val in vals)
+            {
+                Console.WriteLine(val);
+            }
+
+
+            Console.WriteLine("----------------------------");
+            Console.WriteLine($"O maior valor entre os valores informados é {maiorVal}");
+            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
         static void ex20(string msg)
         {
+            /*
+             * 20 - Escreva um algoritmo para o jogo de adivinhação do número secreto. O jogador tem 3 chances e recebe dicas do tipo “é maior” ou “é menor”. 
+             * plus: você pode gerar o número de forma randomica (função random c#).
+             */
             Console.WriteLine(msg);
+            /* Radom
+             * Gera um número aleatório
+             */
+            Random random = new Random();
+            int tentativas = 3, tentativa, nS = random.Next(1, 100); // Gera um número aleatório entre 1 e 100
+
+            Console.WriteLine("Bem-vindo ao Jogo de Adivinhação!");
+            Console.WriteLine("Tente adivinhar o número secreto entre 1 e 100.");
+
+            for (int i = 1; i <= tentativas; i++)
+            {
+                Console.WriteLine("----------------------------");
+                Console.WriteLine($"Você tem {tentativas} tentativas.");
+                Console.WriteLine($"{i}º Tentativa:");
+                tentativa = int.Parse(Console.ReadLine());
+
+                if (tentativa == nS)
+                {
+                    Console.WriteLine("----------------------------");
+                    Console.WriteLine("Parabéns! Você acertou o número secreto.");
+                    Console.WriteLine("----- Fim do Exercicio -----\n");
+                    break;
+                }
+                else if (tentativa < nS)
+                    Console.WriteLine("É maior.");
+                else
+                    Console.WriteLine("É menor.");
+            }
+
+            Console.WriteLine("----------------------------");
+            Console.WriteLine("Você esgotou suas tentativas.\n" +
+                "O número secreto era: " + nS);
+            Console.WriteLine("----- Fim do Exercicio -----\n");
+
+        }
+
+        static void ex21(string msg)
+        {
+            /*
+             * 21 - Crie um programa que permita que o usuário selecione uma unidade de medida de entrada (metros, centímetros, polegadas ou pés) e uma unidade de 
+             * medida de saída usando um menu com o comando switch case. O programa deve, em seguida, pedir ao usuário um valor de entrada e converter esse 
+             * valor para a unidade de saída selecionada.
+             */
+            Console.WriteLine(msg);
+
+            int input, output;
+            string unidade = "";
+            double val, convert = 0;
+            
+            Console.WriteLine("Insira um medida de entrada: (Número)\n" +
+            "1 = 1. Metros\n" +
+            "2 = 2. Centímetros\n" +
+            "3 = 3. Polegadas\n" +
+            "4 = 4. Pés");
+            input = int.Parse(Console.ReadLine());
+
+            Console.Write("\n");
+
+            Console.WriteLine("Insira um medida de saída: (Número)\n" +
+            "1 = 1. Metros\n" +
+            "2 = 2. Centímetros\n" +
+            "3 = 3. Polegadas\n" +
+            "4 = 4. Pés");
+            output = int.Parse(Console.ReadLine());
+
+            Console.Write("\n");
+
+            Console.WriteLine("Insira o valor para conversão:");
+            val = double.Parse(Console.ReadLine());
+            switch (input) { // Entrada
+                case 1: // Metros
+                    switch (output) // Saida
+                    {
+                        case 1:
+                            convert = val;
+                            unidade = "Metros";
+                            break;
+                        case 2:
+                            convert = val * 100;
+                            unidade = "Centímetros";
+                            break;
+                        case 3:
+                            convert = val * 39.37;
+                            unidade = "Polegadas";
+                            break;
+                        case 4:
+                            convert = val * 3.281;
+                            unidade = "Pés";
+                            break;
+                    }
+                    break;
+                case 2: // Centímetro
+                    switch (output)
+                    {
+                        case 1: 
+                            convert = val / 100;
+                            unidade = "Metros";
+                            break;
+                        case 2:
+                            convert = val;
+                            unidade = "Centímetros";
+                            break;
+                        case 3:
+                            convert = val / 2.54;
+                            unidade = "Polegadas";
+                            break;
+                        case 4:
+                            convert = val / 30.48;
+                            unidade = "Pés";
+                            break;
+                    }
+                    break;
+                case 3: // Polegadas
+                    switch (output)
+                    {
+                        case 1:
+                            convert = val / 39.37;
+                            unidade = "Metros";
+                            break;
+                        case 2:
+                            convert = val * 2.54;
+                            unidade = "Centímetros";
+                            break;
+                        case 3:
+                            convert = val;
+                            unidade = "Polegadas";
+                            break;
+                        case 4:
+                            convert = val / 12;
+                            unidade = "Pés";
+                            break;
+                    }
+                    break;
+                case 4: // Pés
+                    switch (output)
+                    {
+                        case 1:
+                            convert = val / 3.281;
+                            unidade = "Metros";
+                            break;
+                        case 2:
+                            convert = val * 30.48;
+                            break;
+                        case 3:
+                            convert = val * 12;
+                            unidade = "Polegadas";
+                            break;
+                        case 4:
+                            convert = val;
+                            unidade = "Pés";
+                            break;
+                    }
+                    break;
+            }
+
+            Console.WriteLine("----------------------------");
+            Console.WriteLine($"Resultado da Conversão: {convert} {unidade}");
+            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
     }
 }
