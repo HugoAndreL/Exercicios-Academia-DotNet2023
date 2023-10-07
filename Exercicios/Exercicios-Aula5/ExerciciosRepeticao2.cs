@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Runtime.ConstrainedExecution;
+using System.Runtime.Intrinsics.X86;
 
 namespace Exercicios_Aula5
 {
@@ -18,16 +20,19 @@ namespace Exercicios_Aula5
                 "5 = Exercicio 5 - Aula 2\n" +
                 "6 = Exercicio 6 - Aula 2\n" +
                 "7 = Exercicio 7 - Aula 2\n" +
-                "8 = Exercicio 7 - Aula 2\n" +
-                "9 = Exercicio 7 - Aula 2\n" +
-                "10 = Exercicio 7 - Aula 2\n" +
-                "11 = Exercicio 7 - Aula 2\n" +
-                "12 = Exercicio 7 - Aula 2\n" +
-                "13 = Exercicio 7 - Aula 2\n" +
-                "14 = Exercicio 7 - Aula 2\n" +
-                "15 = Exercicio 7 - Aula 2\n" +
-                "16 = Exercicio 7 - Aula 2\n" +
-                "17 = Exercicio 7 - Aula 2\n" +
+                "8 = Exercicio 8 - Aula 2\n" +
+                "9 = Exercicio 9 - Aula 2\n" +
+                "10 = Exercicio 10 - Aula 2\n" +
+                "11 = Exercicio 11 - Aula 2\n" +
+                "12 = Exercicio 12 - Aula 2\n" +
+                "13 = Exercicio 13 - Aula 2\n" +
+                "14 = Exercicio 14 - Aula 2\n" +
+                "15 = Exercicio 15 - Aula 2\n" +
+                "16 = Exercicio 16 - Aula 2\n" +
+                "17 = Exercicio 17 - Aula 2\n" +
+                "18 = Exercicio 18 - Aula 2\n" +
+                "19 = Exercicio 19 - Aula 2\n" +
+                "20 = Exercicio 20 - Aula 2\n" +
                 "--------------------------");
                 int input = int.Parse(Console.ReadLine());
                 Console.Write("\n");
@@ -59,20 +64,44 @@ namespace Exercicios_Aula5
                         ex7("***** Exercicio 7 - Aula 5 *****");
                         break;
                     case 8:
-                        ex8("***** Exercicio 7 - Aula 5 *****");
+                        ex8("***** Exercicio 8 - Aula 5 *****");
                         break;
-                        //case 9:
-                        //    ex9();
-                        //    break;
-                        //case 10:
-                        //    ex10();
-                        //    break;
-                        //case 11:
-                        //    ex11();
-                        //    break;
-                        //case 12:
-                        //    ex12();
-                        //    break;
+                    case 9:
+                        ex9("***** Exercicio 9 - Aula 5 *****");
+                        break;
+                    case 10:
+                        ex10("***** Exercicio 10 - Aula 5 *****");
+                        break;
+                    case 11:
+                        ex11("***** Exercicio 11 - Aula 5 *****");
+                        break;
+                    case 12:
+                        ex12("***** Exercicio 12 - Aula 5 *****");
+                        break;
+                    case 13:
+                        ex13("***** Exercicio 13 - Aula 5 *****");
+                        break;
+                    case 14:
+                        ex14("***** Exercicio 14 - Aula 5 *****");
+                        break;
+                    case 15:
+                        ex15("***** Exercicio 15 - Aula 5 *****");
+                        break;
+                    case 16:
+                        ex16("***** Exercicio 16 - Aula 5 *****");
+                        break;
+                    case 17:
+                        ex17("***** Exercicio 17 - Aula 5 *****");
+                        break;
+                    case 18:
+                        ex18("***** Exercicio 18 - Aula 5 *****");
+                        break;
+                    case 19:
+                        ex19("***** Exercicio 19 - Aula 5 *****");
+                        break;
+                    case 20:
+                        ex20("***** Exercicio 20 - Aula 5 *****");
+                        break;
                 }
                 Console.WriteLine("Deseja limpar o console: (S - Sim; N - Não)");
                 char cls = char.Parse(Console.ReadLine());
@@ -95,7 +124,7 @@ namespace Exercicios_Aula5
              */
             Console.WriteLine(msg);
 
-            int n = -1; // Inicialize com um valor inválido
+            int n = 0;
 
             while (n <= 0)
             {
@@ -371,48 +400,232 @@ namespace Exercicios_Aula5
              */
             Console.WriteLine(msg);
 
+            int n = 0;
+            string input = "";
+
+            while (n <= 0)
+            {
+                Console.Write("Digite um número inteiro positivo: ");
+                input = Console.ReadLine();
+
+                if (int.TryParse(input, out n) && n > 0)
+                    break;
+                else
+                    Console.WriteLine("Número inválido. Por favor, digite um número inteiro positivo.");
+            }
+
+            Console.WriteLine("----------------------------");
+            if (n % 2 == 0)
+                Console.WriteLine($"O numero {int.Parse(input)} é par");
+            else
+                Console.WriteLine($"O número {int.Parse(input)} é impar");
+            Console.WriteLine("----- Fim do Exercicio -----\n");
+        }
+
+        static void ex9(string msg)
+        {
+            /* 
+             * 9.Faça um programa em VS para Ler a quantidade de filhos de cada uma das 30 pessoas que visitaram
+             * o zoológico num determinado dia, imprimindo:
+             * Quantas pessoas tem entre 1 e 3 filhos.
+             * Quantas pessoas tem entre 4 e 7 filhos.
+             * Quantas pessoas tem mais de 8 filhos.
+             * Quantas pessoas não tem filhos.
+             */
+            Console.WriteLine(msg);
+
+            int nFilhos, pessoas13Filhos = 0, pessoas47Filhos = 0, pessoas8Filhos = 0, pessoas0Filhos = 0;
+
+            for (int i = 1; i <= 30; i++)
+            {
+                Console.WriteLine($"Insira o número de filhos da {i}º pessoa:");
+                nFilhos = int.Parse(Console.ReadLine());
+
+                if (nFilhos >= 1 && nFilhos <= 3)
+                    pessoas13Filhos += 1;
+                else if (nFilhos >= 4 && nFilhos <= 7)
+                    pessoas47Filhos += 1;
+                else if (nFilhos >= 8)
+                    pessoas8Filhos += 1;
+                else if (nFilhos == 0)
+                    pessoas0Filhos += 1;
+            }
+
+            Console.WriteLine("----------------------------");
+            Console.WriteLine("Contagem de Filhos:" +
+                $"Pessoas sem filhos: {pessoas0Filhos}\n" +
+                $"Pessoas entre 1 e 3 filhos: {pessoas13Filhos}\n" +
+                $"Pessoas entre 4 e 7 filhos: {pessoas47Filhos}\n" +
+                $"Pessoas com mais de 8 filhos: {pessoas8Filhos}");
+            Console.WriteLine("----- Fim do Exercicio -----\n");
+        }
+
+        static void ex10(string msg)
+        {
+            /*
+             * 10. Ler nome, sexo e idade de 50 pessoas e após imprimir:
+             * Número de pessoas do sexo masculino.
+             * Número de pessoas do sexo feminino.
+             * Número de pessoas com idade inferior a 30 anos.
+             * Número de pessoas com idade superior a 60 anos.
+             * Média de idade das mulheres.
+             */
+            Console.WriteLine(msg);
+
+            string nome;
+            int idade, m = 0, f = 0, i30 = 0, i60 = 0, sumF = 0;
+            float mediaTotal = 0;
+            char sexo;
+
+            for (int i = 1; i <= 50; i++)
+            {
+                Console.WriteLine($"Digite o nome da {i}º pessoa:");
+                nome = Console.ReadLine();
+
+                Console.WriteLine($"Insira a idade da {i}º pessoa:");
+                idade = int.Parse(Console.ReadLine());
+
+                Console.WriteLine($"Selecione o sexo da {i}º pessoa (M - Masculino, F - Feminino):");
+                sexo = char.Parse(Console.ReadLine());
+
+                Console.WriteLine("-------------------------");
+
+                Console.Write("\n");
+                
+                switch (sexo)
+                {
+                    case 'M' or 'm':
+                        m++;
+                        break;
+                    case 'F' or 'f':
+                        f++;
+                        break;
+                }
+
+                if (idade < 30)
+                    i30++;
+                else if (idade > 60)
+                    i60++;
+
+                if (sexo == 'F' || sexo == 'f')
+                {
+                    sumF += idade; 
+                    mediaTotal = sumF / f;
+                }
+            }
+
+            Console.WriteLine("----------------------------");
+            Console.WriteLine("Dados dos Usuários:\n" +
+                $"Número de Mulheres: {f}\n" +
+                $"Número de Homens: {m}\n" +
+                $"Número de pessoas com idade inferior a 30 anos: {i30}\n" +
+                $"Número de pessoas com idade superior a 60 anos: {i60}\n" +
+                $"Média de idade das mulheres: {mediaTotal}");
+            Console.WriteLine("----- Fim do Exercicio -----\n");
 
         }
 
-        //static void ex9(string msg)
-        //{
+        static void ex11(string msg)
+        {
+            /*
+             * 11. Ler as notas de uma turma de alunos e ao final imprimir a nota mais alta, a nota mais baixa, 
+             * a média aritmética da turma e a quantidade de alunos da turma. Usar -1 para encerrar a leitura.
+             */
+            Console.WriteLine(msg);
 
-        //}
+            int quantAlunos = 0;
+            double nota, notaBaixa = 10.0, notaAlta = 0.0, sum = 0, media;
 
-        //static void ex10(string msg)
-        //{
+            while (true)
+            {
+                Console.Write($"Digite a nota do aluno (-1 para encerrar): ");
+                nota = double.Parse(Console.ReadLine());                
 
-        //}
-        //static void ex11(string msg)
-        //{
+                sum += nota;
 
-        //}
-        //static void ex12(string msg) 
-        //{
-        //}
-        //static void ex13(string msg) 
-        //{ 
-        //}
-        //static void ex14(string msg) 
-        //{
-        //}
-        //static void ex15(string msg)
-        //{ 
-        //}
-        //static void ex16(string msg) 
-        //{ 
-        //}
-        //static void ex17(string msg) 
-        //{
-        //}
-        //static void ex18(string msg) 
-        //{
-        //}
-        //static void ex19(string msg) 
-        //{
-        //}
-        //static void ex20(string msg) 
-        //{
-        //}
+                if(nota != -1)
+                {
+                    quantAlunos++;
+                    Console.WriteLine("----------------------------");
+                    Console.Write("\n");
+                    if (nota > notaAlta && nota != -1)
+                        notaAlta = nota;
+
+                    if (nota < notaBaixa && nota != -1)
+                        notaBaixa = nota;
+                }
+
+                if (nota == -1)
+                    break;
+
+            }
+
+            media = sum / quantAlunos;
+            Console.WriteLine("----------------------------");
+            Console.WriteLine($"Nota mais alta: {notaAlta}\n" +
+                $"Nota mais baixa: {notaBaixa}\n" +
+                $"Média da turma: {media}\n" +
+                $"Quantidade de alunos: {quantAlunos}");
+            Console.WriteLine("----- Fim do Exercicio -----\n");
+        }
+
+        static void ex12(string msg)
+        {
+            // 12. Apresentar o total da soma dos cem primeiros números inteiros.
+            Console.WriteLine(msg);
+
+            int sum = 0;
+
+            for (int i = 1; i <= 100; i++)
+            {
+                sum += i;
+            }
+
+            Console.WriteLine("----------------------------");
+            Console.WriteLine($"A soma dos cem primeiros números inteiros é: {sum}");
+            Console.WriteLine("----- Fim do Exercicio -----\n");
+
+
+        }
+
+        static void ex13(string msg)
+        {
+            Console.WriteLine(msg);
+        }
+
+        static void ex14(string msg)
+        {
+            Console.WriteLine(msg);
+        }
+
+        static void ex15(string msg)
+        {
+            Console.WriteLine(msg);
+        }
+
+        static void ex16(string msg)
+        {
+            Console.WriteLine(msg);
+        }
+
+        static void ex17(string msg)
+        {
+            Console.WriteLine(msg);
+        }
+
+        static void ex18(string msg)
+        {
+            Console.WriteLine(msg);
+        }
+
+        static void ex19(string msg)
+        {
+            Console.WriteLine(msg);
+        }
+
+        static void ex20(string msg)
+        {
+            Console.WriteLine(msg);
+        }
     }
 }
