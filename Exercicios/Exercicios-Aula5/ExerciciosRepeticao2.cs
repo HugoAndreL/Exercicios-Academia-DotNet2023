@@ -1,4 +1,7 @@
-﻿namespace Exercicios_Aula5
+﻿using System.Reflection.Metadata.Ecma335;
+using System.Threading.Channels;
+
+namespace Exercicios_Aula5
 {
     internal class ExerciciosRepeticao2
     {
@@ -28,7 +31,6 @@
                 "18 = Exercicio 18 - Aula 5\n" +
                 "19 = Exercicio 19 - Aula 5\n" +
                 "20 = Exercicio 20 - Aula 5\n" +
-                "21 = Exercicio 21 - Aula 5\n" +
                 "--------------------------");
                 int input = int.Parse(Console.ReadLine());
                 Console.Write("\n");
@@ -97,9 +99,6 @@
                         break;
                     case 20:
                         ex20("***** Exercicio 20 - Aula 5 *****");
-                        break;
-                    case 21:
-                        ex21("***** Exercicio 21 - Aula 5 ******");
                         break;
                 }
                 Console.WriteLine("Deseja limpar o console: (S - Sim; N - Não)");
@@ -656,27 +655,184 @@
 
         static void ex16(string msg)
         {
+            /*
+             * 16. Ler um número N qualquer menor ou igual a 50 e apresentar o valor obtido da 
+             * multiplicação sucessiva de N por 3 enquanto o produto for menor que 250 
+             * (N*3; N*3*3; N*3*3*3; etc).
+             */
+            Console.WriteLine(msg);
+
+            int n, result;
             
+            Console.WriteLine("Digite um número N (menor ou igual a 50):");
+            n = int.Parse(Console.ReadLine());
+
+            if (n <= 50)
+            {
+                Console.WriteLine("----------------------------");
+                for (int i = 1; n <= 50; i++)
+                    while (n * 3 < 250)
+                    {
+                        result = n *= 3;
+                        Console.WriteLine($"N*3^{i++} = {result}");
+                        n++;
+                    }
+                Console.WriteLine("----- Fim do Exercicio -----\n");
+            }
+            else Console.WriteLine("Número inválido! Certifique-se de que é menor ou igual a 50.");
         }
 
         static void ex17(string msg)
         {
-            
+            // 17. Apresentar os quadrados dos números inteiros de 15 a 200.
+            Console.WriteLine(msg);
+
+            int square;
+
+            Console.WriteLine("----------------------------");
+            for (int i = 15; i <= 200; i++)
+            {
+                square = i * i;
+                Console.WriteLine($"{i}^2 = {square}");
+            }
+            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
         static void ex18(string msg)
         {
-            
+            /*
+             * 18. Elaborar um programa que apresente o valor de uma potência de uma base qualquer 
+             * elevada a um expoente qualquer, ou seja, NM.
+             */
+            Console.WriteLine(msg);
+
+            double result = 1.0;
+
+            Console.Write("Digite a base (N):");
+
+            if (double.TryParse(Console.ReadLine(), out double n))
+            {
+                Console.Write("Digite o expoente (M):");
+                if (int.TryParse(Console.ReadLine(), out int m))
+                    for (int i = 0; i < m; i++)
+                        result *= n;
+                Console.WriteLine("----------------------------");
+                Console.WriteLine($"{n}^{m} = {result}");
+            }
+            else Console.WriteLine("Expoente inválido. Certifique-se de inserir um número inteiro.");
+
+            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
         static void ex19(string msg)
         {
-            
+            /*
+             * 19. A prefeitura de uma cidade fez uma pesquisa entre seus habitantes, 
+             * coletando dados sobre o salário e número de filhos. A prefeitura deseja saber: 
+             * 
+             * a) média do salário da população;
+             * b) média do número de filhos;
+             * c) maior salário;
+             * d) percentual de pessoas com salário até R$ 100,00.
+             * O final da leitura de dados se dará com a entrada de um salário negativo.
+             */
+            Console.WriteLine(msg);
+
+            double sal, sumSal = 0, maiorSal = double.MinValue, mediaSal, mediaFilhos, percentSal100;
+            int nFilhos, totalPessoas = 0, totalSal100 = 0, totalFilhos = 0;
+
+            while (true)
+            {
+                Console.Write("Salário (ou valor negativo para encerrar): ");
+                sal = int.Parse(Console.ReadLine());
+
+                if (sal < 0)
+                    break;
+
+                Console.Write("Número de filhos: ");
+                nFilhos = int.Parse(Console.ReadLine());
+
+                sumSal += sal;
+                totalFilhos += nFilhos;
+                totalPessoas++;
+
+                if (sal <= 100.00)
+                    totalSal100++;
+
+                if (sal > maiorSal)
+                    maiorSal = sal;
+            }
+
+            mediaSal = sumSal / totalPessoas;
+            mediaFilhos = totalFilhos / totalPessoas;
+            percentSal100 = (double)totalSal100 / totalPessoas * 100;
+
+            Console.WriteLine("----------------------------");
+            Console.WriteLine("\nResultados da pesquisa:");
+            Console.WriteLine($"Média do salário da população: {mediaSal:F2}\n" +
+                $"Média do número de filhos: {mediaFilhos}\n" +
+                $"Maior salário: R$ {maiorSal:F2}\n" +
+                $"Percentual de pessoas com salário até R$ 100,00: {percentSal100:F0}%");
+            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
         static void ex20(string msg)
-        { 
+        {
+            /*
+             * 20. Foi realizada uma pesquisa de algumas características físicas da população de uma 
+             * certa região, a qual coletou os seguintes dados referentes a cada habitante para 
+             * serem analisados:
+             * - sexo (masculino e feminino)
+             * - cor dos olhos (azuis, verdes ou castanhos)
+             * - cor dos cabelos ( louros, castanhos, pretos)
+             * - idade 
+             * 
+             * Faça um algoritmo que determine e escreva: 
+             * 
+             * - a maior idade dos habitantes
+             * - a quantidade de indivíduos do sexo feminino cuja idade está entre 18 e 35 anos inclusive
+             * e que tenham olhos verdes e cabelos louros.
+             * O final do conjunto de habitantes é reconhecido pelo valor -1 entrada como idade.
+             */
+            Console.WriteLine(msg);
 
+            int idade, maiorIdade = int.MinValue, quant = 0;
+            string sexo, corOlhos, corCabelos;
+
+            while (true)
+            {
+                Console.WriteLine("Sexo (M/F, ou -1 para encerrar):");
+                sexo = Console.ReadLine();
+
+                if (sexo == "-1")
+                    break;
+
+                Console.WriteLine("Cor dos olhos (azuis/verdes/castanhos):");
+                corOlhos = Console.ReadLine();
+
+                Console.WriteLine("Cor dos cabelos (louros/castanhos/pretos):");
+                corCabelos = Console.ReadLine();
+
+                Console.WriteLine("Idade:");
+                idade = int.Parse(Console.ReadLine());
+
+                Console.Write("\n");
+
+                if (idade > maiorIdade)
+                    maiorIdade = idade;
+
+                bool sexoF = sexo == "F" || sexo == "f";
+                bool idade18e35 = idade >= 18 && idade <= 35;
+                bool corOlhosCabelo = corOlhos == "verdes" && corCabelos == "louros";
+
+                if (sexoF && idade18e35 && corOlhosCabelo)
+                    quant++;
+            }
+
+            Console.WriteLine("-----------------------------");
+            Console.WriteLine($"Maior idade dos habitantes: {maiorIdade} anos\n" +
+                $"Quantidade de mulheres com olhos verdes, cabelos louros e idade entre 18 e 35 anos: {quant}");
+            Console.WriteLine($"----- Fim do Exercicio -----\n");
         }
     }
 }
