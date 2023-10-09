@@ -1,4 +1,6 @@
-﻿namespace Exercicios_Aula2
+﻿using System.Net.Http.Headers;
+
+namespace Exercicios_Aula2
 {
     internal class ExerciciosSelecao
     {
@@ -21,6 +23,14 @@
                 "11 = Exercicio 11 - Aula 2\n" +
                 "12 = Exercicio 12 - Aula 2\n" +
                 "13 = Exercicio 13 - Aula 2\n" +
+                "14 = Exercicio 14 - Aula 2\n" +
+                "15 = Exercicio 15 - Aula 2\n" +
+                "16 = Exercicio 16- Aula 2\n" +
+                "17 = Exercicio 17 - Aula 2\n" +
+                "18 = Exercicio 18 - Aula 2\n" +
+                "19 = Exercicio 19 - Aula 2\n" +
+                "20 = Exercicio 20 - Aula 2\n" +
+                "21 = Exercicio 21 - Aula 2\n" +
                 "--------------------------");
                 int input = int.Parse(Console.ReadLine());
                 Console.Write("\n");
@@ -524,63 +534,423 @@
 
             salTotal = numeroHoras * salHora;
             if (numeroHoras > 50)
-            {
                 extra = (numeroHoras - 50) * 20.0;
-                numeroHoras = 50;
-            }
 
             salTotal += extra;
 
             Console.WriteLine("----------------------------");
             Console.WriteLine($"Código do operário: {codigo}");
-            Console.WriteLine($"Salário total: R$ {salTotal:F2}");
-            Console.WriteLine($"Salário excedente: R$ {extra:F2}");
+            Console.WriteLine($"Salário total: R$ {salTotal},00");
+            Console.WriteLine($"Salário excedente: R$ {extra},00");
             Console.WriteLine("----- Fim do Programa -----\n");
         }
 
         static void ex13()
         {
+            /*
+             * 13 - Tendo como dado de entrada a altura (h) de uma pessoa, construa um programa no VS que calcule 
+             * seu peso ideal, utilizando as seguintes fórmulas:
+             * Para homens: (72.7 * h) - 58
+             * Para mulheres: (62.1 * h) - 44.7
+             */
+            Console.WriteLine("***** Exercicio 13 - Aula 3 *****");
 
+            double h, w = 5.0;
+            char sexo;
+
+            Console.WriteLine("Insira a altura da pessoa:");
+            h = double.Parse(Console.ReadLine());
+
+            Console.Write("\n");
+
+            Console.WriteLine("Selecione o seu sexo (M - Masculino, F - Feminino): ");
+            sexo = char.Parse(Console.ReadLine());
+
+            switch (sexo)
+            {
+                case 'M' or 'm':
+                    w = (72.7 * h) - 58.0;
+                    break;
+                case 'F' or 'f':
+                    w = (62.1 * h) - 44.7;
+                    break;
+            }
+
+            Console.WriteLine("----------------------------");
+            Console.WriteLine($"Esse é seu peso ideal: {w}");
+            Console.WriteLine("----- Fim do Programa -----\n");
         }
 
         static void ex14()
         {
+            /*
+             * 14 - Faça um programa que peça o tamanho de um arquivo para download (em MB) e a velocidade de um 
+             * link de Internet (em Mbps). Em seguida, calcule e informe o tempo aproximado de download 
+             * do arquivo usando este link (em minutos).
+             */
+            Console.WriteLine("***** Exercicio 14 - Aula 3 *****");
 
+            double mbps;
+            int download, tempoDownload;
+
+            Console.WriteLine("Insira o tamanho do arquivo para download (em MB):");
+            download = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Insira a velocidade de um link para internet (em Mbps):");
+            mbps = double.Parse(Console.ReadLine());
+
+            tempoDownload = download / (int)mbps / 60;
+
+            Console.WriteLine($"Tempo aproximado para download: {tempoDownload} Minutos");
         }
 
         static void ex15()
         {
+            /*
+             * 15 - Faça um programa para uma loja de tintas. O programa deverá pedir o tamanho em metros quadrados 
+             * da área a ser pintada. Considere que a cobertura da tinta é de 1 litro para cada 3 metros quadrados 
+             * e que a tinta é vendida em latas de 18 litros, que custam R$ 80,00. 
+             * Informe ao usuário a quantidades de latas de tinta a serem compradas e o preço total.
+             */
+            Console.WriteLine("***** Exercicio 15 - Aula 3 *****");
 
+            double area, litros, precoLatas = 80.0, precoTotal = 0;
+            int latas = 1;
+
+            Console.WriteLine("Insira o tamanho em metros quadrados da área a ser pintada");
+            area = double.Parse(Console.ReadLine());
+
+            litros = area / 3;
+
+            /*
+                * Math.Ceiling()
+                * Pega o numero mais aproximado
+                * 0.5 == 0;
+                * 0.9 == 1;
+                */
+            latas = (int)Math.Ceiling(litros / 18);
+
+            precoTotal = latas * precoLatas;
+
+            Console.WriteLine("----------------------------");
+            /* :F{numero desejado}
+             * Este comando tem o mesmo efeito do .ToString("F{numero desejado}")
+             * Além de dar casas decimais com o valor do {numero desejado}
+             */
+            Console.WriteLine($"Quantidade de tintas necessárias: {latas}\n" +
+                $"Preço Total: R$ {precoTotal:F2}");
+            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
         static void ex16()
         {
 
+            /*
+             * 16 - Escreva um algoritmo que leia o placar de um jogo da primeira fase da copa do Brasil. Caso o time de fora tenha ganho o jogo por mais de 2 gols de diferença, mostre
+             * na tela uma mensagem indicando que o time de fora já se classificou para a próxima fase. Caso contrário, mostre uma mensagem indicando que os dois times irão se
+             * enfrentar novamente em um novo jogo.
+             * ex: time da casa 4 x 3 time de fora, mostra "Os dois times se enfrentarão em um novo jogo"
+             * ex2: time da casa 1 x 3 time de fora, mostra "O time de fora já se classificou"
+             * plus: caso ocorra um segundo jogo, leia o placar desse novo jogo e então diga quem passou de fase.
+             */
+            Console.WriteLine("***** Exercicio 16 - Aula 3 *****");
+
+            int placarCasa, placarFora;
+
+            for (int i = 1; true; i++)
+            {
+                Console.Write($"Insira o placar do {i}º jogo - Time da casa: ");
+                placarCasa = int.Parse(Console.ReadLine());
+
+                Console.Write($"Insira o placar do {i}º jogo - Time de fora: ");
+                placarFora = int.Parse(Console.ReadLine());
+
+                if (placarFora - placarCasa >= 2)
+                {
+                    Console.WriteLine("O time de fora já se classificou para a próxima fase");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Os dois times se enfrentarão em um novo jogo");
+                    Console.WriteLine("----------------------------");
+                    continue;
+                }
+            }
+            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
         static void ex17()
         {
+            /*
+             * 17 - Faça um algoritmo que leia o tamanho dos lados de um triangulo (lado a, b e c), e então diga se esses lados podem ou não formar um triangulo. Para que os lados,
+             * formem um triângulo, todos os lados devem ser menores ou iguais a soma dos outros dois lados. Caso os lados formem um triangulo, diga se o mesmo é equilátero (todos
+             * os lados iguais), isoceles (somente 2 lados são iguais) ou escaleno (os 3 lados são diferentes).
+             */
+            Console.WriteLine("***** Exercicio 17 - Aula 3 *****");
 
+            double a, b, c;
+            bool verificaTriangulo;
+
+            Console.WriteLine("Insira o lado A do triangulo:");
+            a = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Insira o lado B do triangulo:");
+            b = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Insira o lado C do triangulo:");
+            c = double.Parse(Console.ReadLine());
+
+            verificaTriangulo = a + b > c && a + c > b && b + c > a;
+
+            if (verificaTriangulo)
+            {
+                Console.WriteLine("----------------------------");
+                if (a == b && b == c)
+                    Console.WriteLine("Os lados formam um triângulo equilátero");
+                else if (a == b || a == c || b == c)
+                    Console.WriteLine("Os lados formam um triângulo isósceles");
+                else if (a != b && b != c)
+                    Console.WriteLine("Os lados formam um triângulo escaleno");
+                Console.WriteLine("----- Fim do Exercicio -----\n");
+            }
+            else
+            {
+                Console.WriteLine("Os lados não formam um triângulo.");
+                Console.WriteLine("----- Fim do Exercicio -----\n");
+            }
         }
 
         static void ex18()
         {
+            // 18 - Escreva um algoritmo que leia 3 valores pelo teclado e então informe qual o maior deles.
+            Console.WriteLine("***** Exercicio 18 - Aula 3 *****");
 
+            double[] vals = new double[3];
+            int maiorVal = 0;
+
+            for (int i = 1; i < 3; i++)
+            {
+                Console.Write($"Valor {i}: ");
+                vals[i] = double.Parse(Console.ReadLine());
+
+                for (int j = 1; j < 3; j++)
+                    if (vals[j] > maiorVal)
+                        maiorVal = (int)vals[j];
+            }
+
+            Console.WriteLine("----------------------------");
+            Console.WriteLine($"O maior valor entre os valores informados é {maiorVal}");
+            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
         static void ex19()
         {
+            // 19 - Ajuste o exercício 18 de maneira que mostre os valores informados em ordem crescente.
+            Console.WriteLine("***** Exercicio 19 - Aula 3 *****");
 
+            double[] vals = new double[3];
+            int maiorVal = 0;
+
+            for (int i = 1; i < 3; i++)
+            {
+                Console.Write($"Valor {i}: ");
+                vals[i] = double.Parse(Console.ReadLine());
+
+                for (int j = 1; j < 3; j++)
+                    if (vals[j] > maiorVal)
+                        maiorVal = (int)vals[j];
+            }
+
+            Array.Sort(vals);
+
+            Console.WriteLine("----------------------------");
+
+            Console.WriteLine($"Valores digitados:");
+
+            /*
+             * Foreach
+             * Em vez de usar o for decidi usar o foreach por ser mais prático
+             * Ele pega um valor de um vetor ou um array
+             * - Crie uma variavel e depois use o in e color o vetor ou array
+             * Exemplo:
+             * Foreach (string item in items) {}
+             */
+            foreach (double val in vals)
+            {
+                Console.WriteLine(val);
+            }
+
+            Console.WriteLine("----------------------------");
+            Console.WriteLine($"O maior valor entre os valores informados é {maiorVal}");
+            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
         static void ex20()
         {
+            /*
+             * 20 - Escreva um algoritmo para o jogo de adivinhação do número secreto. O jogador tem 3 chances e recebe dicas do tipo “é maior” ou “é menor”. 
+             * plus: você pode gerar o número de forma randomica (função random c#).
+             */
+            Console.WriteLine("***** Exercicio 20 - Aula 3 *****");
+            /* Random
+             * Gera um número aleatório
+             */
+            Random random = new Random();
+            int tentativas = 3, tentativa, nS = random.Next(1, 100); // Gera um número aleatório entre 1 e 100
 
+            Console.WriteLine("Bem-vindo ao Jogo de Adivinhação!");
+            Console.WriteLine("Tente adivinhar o número secreto entre 1 e 100.");
+
+            for (int i = 1; i <= tentativas; i++)
+            {
+                Console.WriteLine("----------------------------");
+                Console.WriteLine($"Você tem {tentativas} tentativas.");
+                Console.WriteLine($"{i}º Tentativa:");
+                tentativa = int.Parse(Console.ReadLine());
+
+                if (tentativa == nS)
+                {
+                    Console.WriteLine("----------------------------");
+                    Console.WriteLine("Parabéns! Você acertou o número secreto.");
+                    Console.WriteLine("----- Fim do Exercicio -----\n");
+                    break;
+                }
+                else if (tentativa < nS)
+                    Console.WriteLine("É maior.");
+                else
+                    Console.WriteLine("É menor.");
+            }
+
+            Console.WriteLine("----------------------------");
+            Console.WriteLine("Você esgotou suas tentativas.\n" +
+                "O número secreto era: " + nS);
+            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
         static void ex21()
         {
+            /*
+ * 21 - Crie um programa que permita que o usuário selecione uma unidade de medida de entrada (metros, centímetros, polegadas ou pés) e uma unidade de 
+ * medida de saída usando um menu com o comando switch case. O programa deve, em seguida, pedir ao usuário um valor de entrada e converter esse 
+ * valor para a unidade de saída selecionada.
+ */
+            Console.WriteLine(msg);
 
+            int input, output;
+            string unidade = "";
+            double val, convert = 0;
+
+            Console.WriteLine("Insira um medida de entrada: (Número)\n" +
+            "1 = 1. Metros\n" +
+            "2 = 2. Centímetros\n" +
+            "3 = 3. Polegadas\n" +
+            "4 = 4. Pés");
+            input = int.Parse(Console.ReadLine());
+
+            Console.Write("\n");
+
+            Console.WriteLine("Insira um medida de saída: (Número)\n" +
+            "1 = 1. Metros\n" +
+            "2 = 2. Centímetros\n" +
+            "3 = 3. Polegadas\n" +
+            "4 = 4. Pés");
+            output = int.Parse(Console.ReadLine());
+
+            Console.Write("\n");
+
+            Console.WriteLine("Insira o valor para conversão:");
+            val = double.Parse(Console.ReadLine());
+            switch (input)
+            { // Entrada
+                case 1: // Metros
+                    switch (output) // Saida
+                    {
+                        case 1:
+                            convert = val;
+                            unidade = "Metros";
+                            break;
+                        case 2:
+                            convert = val * 100;
+                            unidade = "Centímetros";
+                            break;
+                        case 3:
+                            convert = val * 39.37;
+                            unidade = "Polegadas";
+                            break;
+                        case 4:
+                            convert = val * 3.281;
+                            unidade = "Pés";
+                            break;
+                    }
+                    break;
+                case 2: // Centímetro
+                    switch (output)
+                    {
+                        case 1:
+                            convert = val / 100;
+                            unidade = "Metros";
+                            break;
+                        case 2:
+                            convert = val;
+                            unidade = "Centímetros";
+                            break;
+                        case 3:
+                            convert = val / 2.54;
+                            unidade = "Polegadas";
+                            break;
+                        case 4:
+                            convert = val / 30.48;
+                            unidade = "Pés";
+                            break;
+                    }
+                    break;
+                case 3: // Polegadas
+                    switch (output)
+                    {
+                        case 1:
+                            convert = val / 39.37;
+                            unidade = "Metros";
+                            break;
+                        case 2:
+                            convert = val * 2.54;
+                            unidade = "Centímetros";
+                            break;
+                        case 3:
+                            convert = val;
+                            unidade = "Polegadas";
+                            break;
+                        case 4:
+                            convert = val / 12;
+                            unidade = "Pés";
+                            break;
+                    }
+                    break;
+                case 4: // Pés
+                    switch (output)
+                    {
+                        case 1:
+                            convert = val / 3.281;
+                            unidade = "Metros";
+                            break;
+                        case 2:
+                            convert = val * 30.48;
+                            break;
+                        case 3:
+                            convert = val * 12;
+                            unidade = "Polegadas";
+                            break;
+                        case 4:
+                            convert = val;
+                            unidade = "Pés";
+                            break;
+                    }
+                    break;
+            }
+
+            Console.WriteLine("----------------------------");
+            Console.WriteLine($"Resultado da Conversão: {convert} {unidade}");
+            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
     }
 }
