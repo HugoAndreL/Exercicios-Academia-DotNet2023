@@ -289,14 +289,21 @@ namespace Exercicios_Aula_6
              */
             Console.WriteLine(msg);
 
-            double[] v = new double[30];
+            double[] v = new double[5];
+            string str = "|";
 
             for (int i = 0; i < v.Length; i++)
             {
                 Console.Write($"Insira o {i + 1} número: ");
                 v[i] = double.Parse(Console.ReadLine());
+
+                if (v[i] < 0)
+                    str += $"{v[i]}|";
             }
-            // Fazer
+
+            Console.WriteLine("----------------------------");
+            Console.WriteLine($"Esses são as posições dos numeros menores que 0: {str}");
+            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
         
         static void ex9(string msg)
@@ -304,14 +311,36 @@ namespace Exercicios_Aula_6
             // 9.	Escreva um algoritmo que leia os valores para um vetor de 10 elementos, e em seguida ordene em ordem crescente os valores desse vetor, utilizando um vetor auxiliar.
             Console.WriteLine(msg);
 
-            int[] v = new int[10];
+            int[] v = new int[10], vOrder = new int[10];
+            int tmp = 0;
 
+            // Lê os numeros digitados
             for (int i = 0; i < v.Length; i++)
             {
-                Console.Write($"Insira o {i + 1} número: ");
+                Console.Write($"Insira o valor para o vetor[{i}]: ");
                 v[i] = int.Parse(Console.ReadLine());
             }
-            // Fazer
+
+            // Ordena o vOrder em ordem crescente
+            for (int i = 0; i < v.Length; i++)
+            {
+                int j = i;
+
+                while (j > 0 && vOrder[j - 1] > v[i])
+                {
+                    vOrder[j] = vOrder[j - 1];
+                    j--;
+                }
+
+                vOrder[j] = v[i];
+            }
+
+            Console.WriteLine("----------------------------");
+            Console.WriteLine("Valores na ordem em que foram digitados:");
+            MostrarVetor(v);
+            Console.WriteLine("Valores em ordem crescente:");
+            MostrarVetor(vOrder);
+            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
         static void ex10(string msg)
@@ -478,7 +507,6 @@ namespace Exercicios_Aula_6
                 v1[i] = int.Parse(Console.ReadLine());
             }
 
-            // Copia os conteúdos invertendo a ordem
             for (int i = 0; i < 20; i++)
                 v2[i] = v1[v2.Length - i];
 
@@ -517,8 +545,7 @@ namespace Exercicios_Aula_6
                 Console.Write($"Insira um valor para y[{i}]: ");
                 y[i] = int.Parse(Console.ReadLine());
 
-                uniao[i] = x[i];
-                uniao[i + 10] = y[i];
+                x.CopyTo(uniao, i);
 
                 for (int j = 0; j < 10; j++)
                 {
@@ -541,6 +568,14 @@ namespace Exercicios_Aula_6
                 $"Vetor Diferença: {strDif}\n" +
                 $"Vetor Interceção: {strInter}");
             Console.WriteLine("----- Fim do Exercicio -----\n");
+        }
+
+        static void MostrarVetor(int[] vetor)
+        {
+            string str = "|";
+            for (int i = 0; i < vetor.Length; i++)
+                str += $"{vetor[i]}|";
+            Console.Write($"{str}\n");
         }
     }
 }
