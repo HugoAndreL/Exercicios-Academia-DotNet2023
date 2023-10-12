@@ -1,6 +1,4 @@
-﻿using System.Net.Http.Headers;
-
-namespace Exercicios_Aula2
+﻿namespace Exercicios_Aula2
 {
     internal class ExerciciosSelecao
     {

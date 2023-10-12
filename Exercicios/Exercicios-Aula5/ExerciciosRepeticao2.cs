@@ -1,7 +1,4 @@
-﻿using System.Reflection.Metadata.Ecma335;
-using System.Threading.Channels;
-
-namespace Exercicios_Aula5
+﻿namespace Exercicios_Aula5
 {
     internal class ExerciciosRepeticao2
     {

@@ -1,4 +1,8 @@
-﻿namespace Exercicios_Aula7
+﻿using System;
+using System.ComponentModel;
+using System.Numerics;
+
+namespace Exercicios_Aula6
 {
     internal class ExerciciosMatriz
     {
@@ -7,24 +11,24 @@
             while (true)
             {
                 // Opção de escolha
-                Console.WriteLine("Selecione um Exercicio (Digite apenas o número do exercicio):\n" +
+                Console.WriteLine("Selecione um Exercicio: (Digite apenas o número do exercicio)\n" +
                     "-------------------------\n" +
-                    "1 = Exercicio 1 - Aula 7\n" +
-                    "2 = Exercicio 2 - Aula 7\n" +
-                    "3 = Exercicio 3 - Aula 7\n" +
-                    "4 = Exercicio 4 - Aula 7\n" +
-                    "5 = Exercicio 5 - Aula 7\n" +
-                    "6 = Exercicio 6 - Aula 7\n" +
-                    "7 = Exercicio 7 - Aula 7\n" +
-                    "8 = Exercicio 8 - Aula 7\n" +
-                    "9 = Exercicio 9 - Aula 7\n" +
-                    "10 = Exercicio 10 - Aula 7\n" +
-                    "11 = Exercicio 11 - Aula 7\n" +
-                    "12 = Exercicio 12 - Aula 7\n" +
-                    "13 = Exercicio 13 - Aula 7\n" +
-                    "14 = Exercicio 14 - Aula 7\n" +
-                    "15 = Exercicio 15 - Aula 7\n" +
-                    "16 = Exercicio 16 - Aula 7\n" +
+                    "1 = Exercicio 1 - Aula 6\n" +
+                    "2 = Exercicio 2 - Aula 6\n" +
+                    "3 = Exercicio 3 - Aula 6\n" +
+                    "4 = Exercicio 4 - Aula 6\n" +
+                    "5 = Exercicio 5 - Aula 6\n" +
+                    "6 = Exercicio 6 - Aula 6\n" +
+                    "7 = Exercicio 7 - Aula 6\n" +
+                    "8 = Exercicio 8 - Aula 6\n" +
+                    "9 = Exercicio 9 - Aula 6\n" +
+                    "10 = Exercicio 10 - Aula 6\n" +
+                    "11 = Exercicio 11 - Aula 6\n" +
+                    "12 = Exercicio 12 - Aula 6\n" +
+                    "13 = Exercicio 13 - Aula 6\n" +
+                    "14 = Exercicio 14 - Aula 6\n" +
+                    "15 = Exercicio 15 - Aula 6\n" +
+                    "16 = Exercicio 16 - Aula 6\n" +
                     "--------------------------");
                 int input = int.Parse(Console.ReadLine());
                 Console.Write("\n");
@@ -51,12 +55,6 @@
                     case 6:
                         ex6(6);
                         break;
-                    case 7:
-                        ex7(7);
-                        break;
-                    case 8:
-                        ex8(8);
-                        break;
                 }
                 Console.Write("Deseja limpar o console (S - Sim; N - Não): ");
                 char cls = char.Parse(Console.ReadLine());
@@ -73,10 +71,11 @@
         static void ex1(int ex)
         {
             // 1) Crie uma Matriz 5x3. Na primeira coluna, solicite que o usuário preencha. A 2ª coluna, some 10 aos elementos da 1ª coluna. Na 3º coluna, armazene o dobro dos elementos da 1ª coluna.
-            Console.WriteLine($"***** Exercicio {ex} - Aula 7 *****");
+            Console.WriteLine($"***** Exercicio {ex} - Aula 6 *****");
 
             int[,] mat = new int[5, 3];
 
+            for (int i = 0; i < mat.GetLength(0); i++) { }
             LerMatrizInt(mat, "mat");
 
             // Somando 10 + 1º coluna à 2º coluna da matriz
@@ -87,8 +86,7 @@
             for (int i = 0; i < mat.GetLength(0); i++)
                 mat[i, 2] = mat[i, 0] * 2;
 
-            MostrarMatrizInt(mat, "Matriz");
-            Console.WriteLine("----- Fim do Exercicio -----\n");
+            MostrarMatrizInt(mat, "mat");
         }
 
         static void ex2(int ex)
@@ -104,7 +102,7 @@
              * -Ex: Coluna 1: 23
              * Coluna 2: 36
              */
-            Console.WriteLine($"***** Exercicio {ex} - Aula 7 *****");
+            Console.WriteLine($"***** Exercicio {ex} - Aula 6 *****");
 
             int[,] mat = new int[3, 3];
 
@@ -123,9 +121,6 @@
 
                 Console.WriteLine($"Linha {j + 1}: {sumRow}");
             }
-
-            MostrarMatrizInt(mat, "Matriz");
-
             Console.WriteLine("----------------------------");
 
             Console.WriteLine("Soma dos elementos de cada coluna ficou da seguinte maneira:");
@@ -147,15 +142,12 @@
         {
             // 3) Popule uma matriz 4x4 e mostre os elementos da Diagonal Principal!
             Console.WriteLine($"***** Exercicio {ex} - Aula 7 *****");
-
+            
             int[,] mat = new int[4, 4];
 
             LerMatrizInt(mat, "mat");
 
-            MostrarMatrizInt(mat, "Matriz");
-            Console.WriteLine("----------------------------");
             Console.WriteLine($"Essa é a sua diagonal principal: {DiagonalPrincipal(mat)}");
-            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
         static void ex4(int ex)
@@ -177,16 +169,16 @@
                 LerMatrizInt(mat, "mat");
 
 
-
+            
             for (int i = 0; i < mat.GetLength(0); i++)
                 for (int j = 0; j < mat.GetLength(1); j++)
                 {
-                    _ = mat[i, j] % 2 == 0 ?
+                    _ = mat[i, j] % 2 == 0 ? 
                         par++ :
                         impar++; // Verificando se o valor digitado na posição do vetor é impar ou par
                     if (mat[i, j] > 0)
                         positivo++; // Verificando se o valor digitado na posição do vetor é maior que zero
-                    else if (mat[i, j] < 0)
+                    else if (mat[i, j] < 0) 
                         negativo++; // Verificando se o valor digitado na posição do vetor é menor que zero
                     else if (mat[i, j] == 0)
                         zero++; // Verificando se o valor digitado na posição do vetor é igual à zero
@@ -224,7 +216,6 @@
                     sumMat[i, j] = mat1[i, j] + mat2[i, j];
 
             MostrarMatrizDouble(sumMat, "sumMat");
-            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
         static void ex6(int ex)
@@ -247,58 +238,12 @@
             for (int i = 0; i < mat.GetLength(0); i++)
                 for (int j = 0; j < mat.GetLength(0); j++)
                     _ = mat[i, j] > maior
-                        ? maior = mat[i, j]
+                        ? maior = mat[i, j] 
                         : j++;
+                
 
-            MostrarMatrizInt(mat, "M");
             Console.WriteLine("----------------------------");
             Console.WriteLine($"O maior número da mat é o: {maior}");
-            Console.WriteLine("----- Fim do Exercicio -----\n");
-        }
-
-        static void ex7(int ex)
-        {
-            // 7) Leia duas matrizes A e B com 3x3 elementos. Construir uma matriz C, onde cada elemento de C é a subtração do elemento correspondente de A com B.
-            Console.WriteLine($"***** Execicio {ex} - Aula 7 *****");
-
-            int[,] a = new int[3, 3], b = new int[3, 3], c = new int[3, 3];
-
-            LerMatrizInt(a, "A");
-            LerMatrizInt(b, "B");
-
-            for (int i = 0; i < c.GetLength(0); i++)
-                for (int j = 0; j < c.GetLength(1); j++)
-                    c[i, j] = a[i, j] - a[i, j];
-
-            MostrarMatrizInt(a, "A");
-            MostrarMatrizInt(b, "B");
-            MostrarMatrizInt(c, "C");
-            Console.WriteLine("----- Fim do Exercicio -----\n");
-        }
-
-        static void ex8(int ex)
-        {
-            // 8) Ler uma matriz com 4x4 de inteiros e mostrar os números na ordem direta e inversa a que foram lidos.
-            Console.WriteLine($"***** Exercicio {ex} - Aula 7 *****");
-
-            int[,] mat = new int[2, 2];
-
-            LerMatrizInt(mat, "matriz");
-
-            Console.WriteLine("----------------------------");
-
-            MostrarMatrizInt(mat, "na ordem em que foi digitado");
-
-            Console.WriteLine("----------------------------");
-
-            Console.WriteLine("Matriz na ordem inversa:");
-            for (int i = mat.GetLength(0) - 1; i >= 0; i--)
-            {
-                for (int j = mat.GetLength(1) - 1; j >= 0; j--)
-                    Console.Write($"[ {mat[i, j]} ]");
-                Console.WriteLine();
-            }
-
             Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
@@ -308,8 +253,8 @@
             for (int i = 0; i < matriz.GetLength(0); i++)
             {
                 for (int j = 0; j < matriz.GetLength(1); j++)
-                {
-                    Console.Write($"Insira um numero para {strMatriz} na linha {i + 1}, coluna {j + 1}: ");
+                { 
+                    Console.Write($"Insira um numero para {strMatriz}[{i}, {j}]: ");
                     matriz[i, j] = int.Parse(Console.ReadLine());
                 }
             }
@@ -330,6 +275,8 @@
                 }
                 Console.WriteLine();
             }
+
+            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
         static void LerMatrizDouble(double[,] matriz, string strMatriz)
@@ -339,7 +286,7 @@
             {
                 for (int j = 0; j < matriz.GetLength(1); j++)
                 {
-                    Console.Write($"Insira um numero para {strMatriz} na linha {i + 1}, coluna {j + 1}: ");
+                    Console.Write($"Insira um numero para {strMatriz}[{i}, {j}]: ");
                     matriz[i, j] = int.Parse(Console.ReadLine());
                 }
             }
@@ -358,9 +305,11 @@
                     Console.Write($"[ {matriz[i, j]} ]");
                 Console.Write("\n");
             }
+
+            Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
-        static string DiagonalPrincipal(int[,] matriz)
+        static string DiagonalPrincipal(int[,] matriz) 
         {
             string digPrincipal = "";
             // Mostra a diagonal principal
