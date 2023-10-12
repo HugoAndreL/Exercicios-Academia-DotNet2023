@@ -1,4 +1,6 @@
-﻿namespace Exercicios_Aula7
+﻿using System;
+
+namespace Exercicios_Aula7
 {
     internal class ExerciciosMatriz
     {
@@ -56,6 +58,30 @@
                         break;
                     case 8:
                         ex8(8);
+                        break; 
+                    case 9:
+                        ex9(9);
+                        break;
+                    case 10:
+                        ex10(10);
+                        break;
+                    case 11:
+                        ex11(11);
+                        break;
+                    case 12:
+                        ex12(12);
+                        break;
+                    case 13:
+                        ex13(13);
+                        break;
+                    case 14:
+                        ex14(14);
+                        break;
+                    case 15:
+                        ex15(15);
+                        break;
+                    case 16:
+                        ex16(16);
                         break;
                 }
                 Console.Write("Deseja limpar o console (S - Sim; N - Não): ");
@@ -77,7 +103,7 @@
 
             int[,] mat = new int[5, 3];
 
-            LerMatrizInt(mat, "mat");
+            LerMatrizInt(mat);
 
             // Somando 10 + 1º coluna à 2º coluna da matriz
             for (int i = 0; i < mat.GetLength(0); i++)
@@ -87,7 +113,7 @@
             for (int i = 0; i < mat.GetLength(0); i++)
                 mat[i, 2] = mat[i, 0] * 2;
 
-            MostrarMatrizInt(mat, "Matriz");
+            MostrarMatrizInt(mat);
             Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
@@ -108,7 +134,7 @@
 
             int[,] mat = new int[3, 3];
 
-            LerMatrizInt(mat, "mat");
+            LerMatrizInt(mat);
 
             Console.WriteLine("----------------------------");
 
@@ -124,7 +150,7 @@
                 Console.WriteLine($"Linha {j + 1}: {sumRow}");
             }
 
-            MostrarMatrizInt(mat, "Matriz");
+            MostrarMatrizInt(mat);
 
             Console.WriteLine("----------------------------");
 
@@ -150,9 +176,9 @@
 
             int[,] mat = new int[4, 4];
 
-            LerMatrizInt(mat, "mat");
+            LerMatrizInt(mat);
 
-            MostrarMatrizInt(mat, "Matriz");
+            MostrarMatrizInt(mat);
             Console.WriteLine("----------------------------");
             Console.WriteLine($"Essa é a sua diagonal principal: {DiagonalPrincipal(mat)}");
             Console.WriteLine("----- Fim do Exercicio -----\n");
@@ -174,7 +200,7 @@
             int par = 0, impar = 0, positivo = 0, negativo = 0, zero = 0;
 
             for (int i = 0; i < mat.GetLength(0); i++)
-                LerMatrizInt(mat, "mat");
+                LerMatrizInt(mat);
 
 
 
@@ -213,17 +239,17 @@
             double[,] mat1 = new double[2, 3], mat2 = new double[2, 3], sumMat = new double[2, 3];
 
             // Lendo a 1º matriz
-            LerMatrizDouble(mat1, "mat1");
+            LerMatrizDouble(mat1);
 
             // Lendo a 2º matriz
-            LerMatrizDouble(mat2, "mat2");
+            LerMatrizDouble(mat2);
 
             // Somando os valores
             for (int i = 0; i < sumMat.GetLength(0); i++)
                 for (int j = 0; j < sumMat.GetLength(1); j++)
                     sumMat[i, j] = mat1[i, j] + mat2[i, j];
 
-            MostrarMatrizDouble(sumMat, "sumMat");
+            MostrarMatrizDouble(sumMat);
             Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
@@ -250,7 +276,7 @@
                         ? maior = mat[i, j]
                         : j++;
 
-            MostrarMatrizInt(mat, "M");
+            MostrarMatrizInt(mat);
             Console.WriteLine("----------------------------");
             Console.WriteLine($"O maior número da mat é o: {maior}");
             Console.WriteLine("----- Fim do Exercicio -----\n");
@@ -263,16 +289,16 @@
 
             int[,] a = new int[3, 3], b = new int[3, 3], c = new int[3, 3];
 
-            LerMatrizInt(a, "A");
-            LerMatrizInt(b, "B");
+            LerMatrizInt(a);
+            LerMatrizInt(b);
 
             for (int i = 0; i < c.GetLength(0); i++)
                 for (int j = 0; j < c.GetLength(1); j++)
                     c[i, j] = a[i, j] - a[i, j];
 
-            MostrarMatrizInt(a, "A");
-            MostrarMatrizInt(b, "B");
-            MostrarMatrizInt(c, "C");
+            MostrarMatrizInt(a);
+            MostrarMatrizInt(b);
+            MostrarMatrizInt(c);
             Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
@@ -281,13 +307,13 @@
             // 8) Ler uma matriz com 4x4 de inteiros e mostrar os números na ordem direta e inversa a que foram lidos.
             Console.WriteLine($"***** Exercicio {ex} - Aula 7 *****");
 
-            int[,] mat = new int[2, 2];
+            int[,] mat = new int[4, 4];
 
-            LerMatrizInt(mat, "matriz");
+            LerMatrizInt(mat);
 
             Console.WriteLine("----------------------------");
 
-            MostrarMatrizInt(mat, "na ordem em que foi digitado");
+            MostrarMatrizInt(mat);
 
             Console.WriteLine("----------------------------");
 
@@ -302,25 +328,79 @@
             Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
-        static void LerMatrizInt(int[,] matriz, string strMatriz)
+        static void ex9(int ex)
+        {
+            /*
+             * 9) Leia uma matriz 3x3.  Em seguida, solicite um número qualquer ao usuário e pesquise na matriz se o número existe.  
+             * Caso, seja verdade imprima a mensagem:  “O número existe no vetor” , caso contrário “Número inexistente”.
+             */ 
+            Console.WriteLine($"***** Exercicio {ex} - Aula 7 *****");
+
+            int[,] mat = new int[3, 3];
+            int n;
+            bool swth = false;
+
+            LerMatrizInt(mat);
+
+            Console.WriteLine("----------------------------");
+            
+            Console.Write("Insira um numero para verficar na matriz: ");
+            n = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < mat.GetLength(0); i++)
+                for (int j = 0; j < mat.GetLength(1); j++)
+                    _ = mat[i, j] == n 
+                        ? swth = true
+                        : swth = false;
+
+            MostrarMatrizInt(mat);
+
+            Console.WriteLine("Resultados:");
+            Console.WriteLine((swth == true ? "O número existe no vetor" : "Número inesistente"));
+            Console.WriteLine("----- Fim do Exercicio -----\n");
+        }
+
+        static void ex10(int ex)
+        {
+            // 10) Leia duas matrizes A e B de 4x4 elementos, calcule a média dos mesmos, em seguida, diga quantos dos elementos lidos estão abaixo, acima e na média.
+            Console.WriteLine($"***** Exercicio {ex} - Aula 7 *****");
+
+            int[,] a = new int[4, 4], b = new int[4, 4], c = new int[4, 4];
+
+            Console.WriteLine("----- Fim do Exercicio -----\n");
+        }
+
+        static void ex11(int ex) { }
+
+        static void ex12(int ex) { }
+
+        static void ex13(int ex) { }
+
+        static void ex14(int ex) { }
+
+        static void ex15(int ex) { }
+
+        static void ex16(int ex) { }
+
+        static void LerMatrizInt(int[,] matriz)
         {
             // Lê os valores das linhas na matriz desejada
             for (int i = 0; i < matriz.GetLength(0); i++)
             {
                 for (int j = 0; j < matriz.GetLength(1); j++)
                 {
-                    Console.Write($"Insira um numero para {strMatriz} na linha {i + 1}, coluna {j + 1}: ");
+                    Console.Write($"Insira um numero para matriz desejada na linha {i + 1}, coluna {j + 1}: ");
                     matriz[i, j] = int.Parse(Console.ReadLine());
                 }
             }
         }
 
-        static void MostrarMatrizInt(int[,] matriz, string strMatriz)
+        static void MostrarMatrizInt(int[,] matriz)
         {
             Console.WriteLine("----------------------------");
 
             // Mostra a Matriz desejada
-            Console.WriteLine($"A matriz {strMatriz} ficou da seguinte maneira:");
+            Console.WriteLine($"A matriz desejada ficou da seguinte maneira:");
 
             for (int i = 0; i < matriz.GetLength(0); i++)
             {
@@ -332,25 +412,25 @@
             }
         }
 
-        static void LerMatrizDouble(double[,] matriz, string strMatriz)
+        static void LerMatrizDouble(double[,] matriz)
         {
             // Lê os valores das linhas na matriz desejada
             for (int i = 0; i < matriz.GetLength(0); i++)
             {
                 for (int j = 0; j < matriz.GetLength(1); j++)
                 {
-                    Console.Write($"Insira um numero para {strMatriz} na linha {i + 1}, coluna {j + 1}: ");
+                    Console.Write($"Insira um numero para matriz desejada na linha {i + 1}, coluna {j + 1}: ");
                     matriz[i, j] = int.Parse(Console.ReadLine());
                 }
             }
         }
 
-        static void MostrarMatrizDouble(double[,] matriz, string strMatriz)
+        static void MostrarMatrizDouble(double[,] matriz)
         {
             Console.WriteLine("----------------------------");
 
             // Mostra a Matriz desejada
-            Console.WriteLine($"A matriz {strMatriz} ficou da seguinte maneira:");
+            Console.WriteLine($"A matriz desejada ficou da seguinte maneira:");
 
             for (int i = 0; i < matriz.GetLength(0); i++)
             {
