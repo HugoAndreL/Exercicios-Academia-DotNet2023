@@ -1,4 +1,10 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
+using System.Runtime.Intrinsics.Arm;
+using System.Runtime.Intrinsics.X86;
+using System.Security.Cryptography;
+using System.Threading.Channels;
 
 namespace Exercicios_Aula7
 {
@@ -27,6 +33,7 @@ namespace Exercicios_Aula7
                     "14 = Exercicio 14 - Aula 7\n" +
                     "15 = Exercicio 15 - Aula 7\n" +
                     "16 = Exercicio 16 - Aula 7\n" +
+                    "17 = Exercicio 17 - Aula 7\n" +
                     "--------------------------");
                 int input = int.Parse(Console.ReadLine());
                 Console.Write("\n");
@@ -82,6 +89,9 @@ namespace Exercicios_Aula7
                         break;
                     case 16:
                         ex16(16);
+                        break;
+                    case 17:
+                        ex17(17);
                         break;
                 }
                 Console.Write("Deseja limpar o console (S - Sim; N - Não): ");
@@ -180,7 +190,7 @@ namespace Exercicios_Aula7
 
             MostrarMatrizInt(mat);
             Console.WriteLine("----------------------------");
-            Console.WriteLine($"Essa é a sua diagonal principal: {DiagonalPrincipal(mat)}");
+            Console.WriteLine($"Essa é a sua diagonal principal: {DigPrincipal(mat)}");
             Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
@@ -365,22 +375,221 @@ namespace Exercicios_Aula7
             // 10) Leia duas matrizes A e B de 4x4 elementos, calcule a média dos mesmos, em seguida, diga quantos dos elementos lidos estão abaixo, acima e na média.
             Console.WriteLine($"***** Exercicio {ex} - Aula 7 *****");
 
-            int[,] a = new int[4, 4], b = new int[4, 4], c = new int[4, 4];
+            int[,] a = new int[4, 4], b = new int[4, 4];
+            int mediaA, mediaB, sumA = 0, sumB = 0, acima = 0, abaixo = 0, mediano = 0;
+
+            LerMatrizInt(a);
+            Console.WriteLine("----------------------------");
+            LerMatrizInt(b);
+
+            // Calcular a soma do A
+            for (int i = 0; i < a.GetLength(0); i++)
+                for (int j = 0; j < a.GetLength(1); j++)
+                {
+                    sumA += a[i, j];
+                }
+
+            // Calculando a média do A
+            mediaA = sumA / (a.GetLength(0) * a.GetLength(1));
+            
+            // Dizer se o A está abaixo, acima ou na média
+            if (mediaA > 7.00 && mediaA < 11.00)
+                acima++;
+            else if (mediaA < 5.00)
+                abaixo++;
+            else mediano++;
+
+            // Calcular a soma do B
+            for (int i = 0; i < b.GetLength(0); i++)
+                for (int j = 0; j < b.GetLength(1); j++)
+                {
+                    sumB += b[i, j];
+                }
+            
+            // Calculando a média do A
+            mediaB = sumB / (b.GetLength(0) * b.GetLength(1));
+            
+            // Dizer se o B está abaixo, acima ou na média
+            if (mediaB > 7.00) 
+                acima++;
+            else if (mediaB == 5.00)
+                abaixo++;
+            else mediano++;
+
+            Console.WriteLine("----------------------------");
+            Console.WriteLine("Resultados\n");
+            Console.WriteLine($"Quantidade de elementos acima da média: {acima}");
+            Console.WriteLine($"Quantidade de elementos abaixo da média: {abaixo}");
+            Console.WriteLine($"Quantidade de elementos medianos: {mediano}");
+            Console.WriteLine("----- Fim do Exercicio -----\n");
+        }
+
+        static void ex11(int ex) 
+        {
+            // 11) Leia uma matriz A de tipo double de dimenção 3x3, crie uma nova matriz resultante da divisão dos elementos da matriz A pela soma dos seus indices.
+            Console.WriteLine($"***** Exercicio {ex} - Aula 7 *****");
+
+            double[,] mat = new double[3, 3], matRes = new double[3, 3];
+
+            LerMatrizDouble(mat);
+
+            for (int i = 0; i < mat.GetLength(0); i++)
+            {
+                int sum = (mat.GetLength(0) + mat.GetLength(1));
+                for (int j = 0; j < mat.GetLength(1); j++)
+                    matRes[i, j] = mat[i, j] / sum;
+            }
+
+            Console.WriteLine("----------------------------");
+            MostrarMatrizDouble(matRes);
+            Console.WriteLine("----- Fim do Exercicio -----\n");
+        }
+
+        static void ex12(int ex)
+        {
+            // 12) Escreva um programa que leia os valores de uma matriz 4x3, e em seguida mostre na tela apenas os valores cuja soma dos índices(i + j) seja um número par.
+            Console.WriteLine($"***** Exercicio {ex} - Aula 7 *****");
+
+            int[,] mat = new int[4, 3];
+
+            LerMatrizInt(mat);
+
+            Console.WriteLine("----------------------------");
+            // Verificando se a soma é um numero par
+            for (int i = 0; i < mat.GetLength(0); i++)
+                for (int j = 0; j < mat.GetLength(1); j++)
+                {
+                    if ((i + j) % 2 == 0)
+                        Console.WriteLine($"A soma dos índices {i} + {j} é um numero par");
+                }
+            Console.WriteLine("----- Fim do Exercicio -----\n");
+        }
+
+        static void ex13(int ex)
+        {
+            /* 
+             * 13) Escreva um programa que leia uma matriz de ordem 5 (ou seja, 5x5) e verifique se a soma dos elementos da diagonal principal é igual a soma dos elementos da 
+             * diagonal secundária.
+             */
+            Console.WriteLine($"***** Exercicio {ex} - Aula 7 *****");
+
+            int[,] mat = new int[5, 5];
+            int sumDigP = 0, sumDigS = 0;
+            int size = mat.GetLength(0);
+
+            LerMatrizInt(mat);
+
+            // Calculando a soma das diagonais
+            for (int i = 0; i < mat.GetLength(0); i++)
+            {
+                sumDigP += mat[i, i];
+                sumDigS += mat[i, size - 1 - i];
+            }
+
+            Console.WriteLine("----------------------------");
+            
+            // Verificando se as diagonais são igual usando if padrão
+            if (sumDigP == sumDigS)
+                Console.WriteLine("A soma das diagonais é igual.");
+            else Console.WriteLine("A soma das diagonais não é igual.");
 
             Console.WriteLine("----- Fim do Exercicio -----\n");
         }
 
-        static void ex11(int ex) { }
+        static void ex14(int ex)
+        {
+            /*
+             * 14) Escreva um programa que leia uma matriz de ordem 5 e verifique se os elementos da diagonal principal (da esquerda para a direita)
+             * são os mesmos da diagonal 
+             * secundária (direita pra esquerda).
+             */
+            Console.WriteLine($"***** Exercicio {ex} - Aula 7 *****");
 
-        static void ex12(int ex) { }
+            int[,] mat = new int[5, 5];
 
-        static void ex13(int ex) { }
+            LerMatrizInt(mat);
 
-        static void ex14(int ex) { }
+            Console.WriteLine("----------------------------");
 
-        static void ex15(int ex) { }
+            // Verificando se as diagonais são iguais usando if ternário
+            Console.WriteLine(DigPrincipal(mat) == DigSecundaria(mat) ? "As diagonais são iguais" : "As diagonais não são iguais");
 
-        static void ex16(int ex) { }
+            Console.WriteLine("----- Fim do Exercicio -----\n");
+        }
+
+        static void ex15(int ex)
+        {
+            // 15) Escreva um programa em C# para ler os valores e somar duas matrizes 4 x 4. Mostrar a matriz resultante.
+            Console.WriteLine($"***** Exercicio {ex} - Aula 7 *****");
+
+            int[,] mat1 = new int[4, 4], mat2 = new int[4, 4], matRes = new int[4, 4];
+
+            LerMatrizInt(mat1);
+            Console.WriteLine("---------------------------");
+            LerMatrizInt(mat2);
+            
+            for (int i = 0; i < matRes.GetLength(0); i++)
+                for (int j = 0; j < matRes.GetLength(1); j++)
+                    matRes[i, j] = mat1[i, j] + mat2[i, j];
+
+            MostrarMatrizInt(matRes);
+
+            Console.WriteLine("----- Fim do Exercicio -----\n");
+        }
+
+        static void ex16(int ex)
+        {
+            // 16) Escreva um algoritmo para transpor uma matriz 3x4 para outra 4x3.Transpor uma matriz significa transformar suas linhas em colunas e vice - versa.
+            Console.WriteLine($"***** Exercicio {ex} - Aula 7 *****");
+
+            int[,] mat1 = new int[3, 4], mat2 = new int[4, 3];
+
+            PrencherMatriz(mat1);
+
+            // Transpondo a matriz
+            for (int i = 0; i < mat1.GetLength(1); i++)
+                for (int j = 0; j < mat1.GetLength(0); j++)
+                    mat2[i, j] = mat1[j, i];
+
+            MostrarMatrizInt(mat1);
+            MostrarMatrizInt(mat2);
+            Console.WriteLine("----- Fim do Exercicio -----\n");
+        }
+        
+        static void ex17(int ex)
+        {
+            /*
+             * 17) Fazer um algoritmo que leia uma matriz de 10 linhas por 10 colunas e escreva o elemento minimax, ou seja,o menor elemento da linha onde se encontra o 
+             * maior elemento da matriz. Escreva também a linha e a coluna onde foi encontrado.
+             */
+            Console.WriteLine($"***** Exercicio {ex} - Aula 7 *****");
+
+            int[,] mat = new int[5, 5];
+            int maior = mat[0, 0], minimax, row = 0, col = 0;
+
+            LerMatrizInt(mat);
+
+            // Determinando a linha com maior valor
+            for (int i = 0; i < mat.GetLength(0); i++)
+                for (int j = 0; j < mat.GetLength(1); j++)
+                    if (mat[i, j] > maior)
+                    {
+                        maior = mat[i, j];
+                        row = i;
+                        col = j;
+                    }
+
+            // Determinando o menor valor desta linha
+            minimax = mat[row, 0];
+
+            for (int j = 0; j < mat.GetLength(1); j++)
+                if (mat[row, j] < minimax)
+                    minimax = mat[row, j];
+
+            Console.WriteLine("----------------------------");
+            Console.WriteLine($"O maior elemento da matriz é o: {maior} e o minimax desta linha é o: {minimax}, encontrado na linha: {row + 1} e coluna: {col + 1}");
+            Console.WriteLine("----- Fim do Exercicio -----\n");
+        }
 
         static void LerMatrizInt(int[,] matriz)
         {
@@ -405,9 +614,7 @@ namespace Exercicios_Aula7
             for (int i = 0; i < matriz.GetLength(0); i++)
             {
                 for (int j = 0; j < matriz.GetLength(1); j++)
-                {
                     Console.Write($"[ {matriz[i, j]} ]");
-                }
                 Console.WriteLine();
             }
         }
@@ -440,14 +647,37 @@ namespace Exercicios_Aula7
             }
         }
 
-        static string DiagonalPrincipal(int[,] matriz)
+        static string DigPrincipal(int[,] matriz)
         {
             string digPrincipal = "";
+
             // Mostra a diagonal principal
             for (int i = 0; i < matriz.GetLength(0); i++)
-                digPrincipal += $"[{matriz[i, i]}]";
+                digPrincipal += $"[ {matriz[i, i]} ]";
 
             return digPrincipal;
+        }
+
+        static string DigSecundaria(int[,] matriz)
+        {
+            string digSecudaria = "";
+
+            // Mostra a diagonal secundaria
+            for (int i = matriz.GetLength(0) - 1; i >= 0; i--)
+                digSecudaria += $"[ {matriz[i, ((matriz.GetLength(0) - 1) - i)]} ]";
+
+            return digSecudaria;
+        }
+        
+        static void PrencherMatriz(int[,] matriz)
+        {
+            for (int i = 0; i < matriz.GetLength(0); i++)
+                for (int j = 0; j < matriz.GetLength(1); j++)
+                {
+                    Random rdm = new Random();
+                    matriz[i, j] = rdm.Next(0, 100);
+                }
+                
         }
     }
 }
