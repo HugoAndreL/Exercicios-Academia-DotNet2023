@@ -1,14 +1,10 @@
-﻿using System.Numerics;
-using System.Reflection.Metadata.Ecma335;
-using System.Security.Principal;
-using System.Threading.Channels;
-
-namespace JogoVelha_Avaliativo
+﻿namespace JogoVelha_Avaliativo
 {
     internal class Program
     {
         static void Main()
         {
+            // Pergunta se jogara com alguem ou com a maquina
             ReniciarJogo();
         }
 
@@ -16,7 +12,7 @@ namespace JogoVelha_Avaliativo
         {
             while (true)
             {
-                int row = 0, col = 0;
+                int row, col;
 
                 Console.WriteLine($"----- Vez do Jogador {player} -----");
 
@@ -27,21 +23,17 @@ namespace JogoVelha_Avaliativo
                     Console.Write($"Insira a LINHA desejada para o jogador {player}: ");
                     row = int.Parse(Console.ReadLine());
 
-                    // Verifica a linha
-                    if (row < 1 || row > 3)
-                        Console.WriteLine("Valor da linha inválidos! Tente novamente.");
-
                     // Lê a coluna
                     Console.Write($"Agora insira a COLUNA desejada para o jogador {player}: ");
                     col = int.Parse(Console.ReadLine());
 
-                    // Verifica se a coluna é um valor valido
-                    if (col < 1 || col > 3)
+                    // Verifica se a linha e coluna é um valor valido
+                    if ((row < 1 || row > 3) || (col < 1 || col > 3))
                         Console.WriteLine("Valor invalido! Tente novamente.");
 
                     // Verifica se a linha e a coluna ja estão ocupados
                     else if (game[row - 1, col - 1] != '-')
-                        Console.WriteLine($"Linha {row} e coluna {col} já ocupada.");
+                        Console.WriteLine($"Linha {row} e coluna {col} já ocupada. Tente novamente");
 
                     else break;
                 }
@@ -60,15 +52,18 @@ namespace JogoVelha_Avaliativo
         {
             Console.WriteLine("-------------------------");
 
-            // Mostra a Matriz desejada
+            // Mostra o game
             Console.WriteLine($"O jogo está assim:");
 
+            // Dessenhando uma interface amigavel
+            Console.WriteLine();
             for (int i = 0; i < game.GetLength(0); i++)
             {
                 for (int j = 0; j < game.GetLength(1); j++)
-                    Console.Write($"| {game[i, j]} ");
-                Console.Write("|");
+                    Console.Write((j == 0 ? " " : " | " ) + game[i, j]);
+
                 Console.WriteLine();
+                Console.WriteLine(i == 2 ? "" : "---+---+---");
             }
         }
 
@@ -102,8 +97,7 @@ namespace JogoVelha_Avaliativo
                     if (game[row, col] == '-')
                         return false;
 
-            // Se não houver células vazias e ninguém venceu, o jogo é um empate.
-            return true;
+            return true; // Se não houver células vazias e ninguém venceu, o jogo é um empate.
         }
 
         static void ReniciarJogo()
@@ -139,9 +133,11 @@ namespace JogoVelha_Avaliativo
             }
 
 
-            // Caso queira reniciar o jogo denovo
+            // Lê a entrada para reniciar o jogo
             Console.Write("\nDeseja reniciar o jogo (s - Sim | n - Não): ");
             char swcth = char.Parse(Console.ReadLine());
+
+            // Verifica se renicia o jogo
             if (swcth == 's' || swcth == 'S')
             {
                 Console.Clear();
