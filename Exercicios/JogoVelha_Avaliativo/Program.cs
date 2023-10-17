@@ -20,26 +20,29 @@ namespace JogoVelha_Avaliativo
 
                 Console.WriteLine($"----- Vez do Jogador {player} -----");
 
-                // Faz o loop de verificação da linha
+                // Faz o loop de verificação da linha e coluna
                 while (true)
                 {
+                    // Lê a linha
                     Console.Write($"Insira a LINHA desejada para o jogador {player}: ");
-                    // Lê o valor da linha e verifica se é um valor valido
                     row = int.Parse(Console.ReadLine());
+
+                    // Verifica a linha
                     if (row < 1 || row > 3)
-                        Console.WriteLine("Valor invalido! Tente novamente.");
-                    else break;
-                }
+                        Console.WriteLine("Valor da linha inválidos! Tente novamente.");
 
-                // Faz o loop de verificação da coluna
-                while (true)
-                {
-
+                    // Lê a coluna
                     Console.Write($"Agora insira a COLUNA desejada para o jogador {player}: ");
-                    // Lê o valor da coluna e verifica se é um valor valido
                     col = int.Parse(Console.ReadLine());
+
+                    // Verifica se a coluna é um valor valido
                     if (col < 1 || col > 3)
                         Console.WriteLine("Valor invalido! Tente novamente.");
+
+                    // Verifica se a linha e a coluna ja estão ocupados
+                    else if (game[row - 1, col - 1] != '-')
+                        Console.WriteLine($"Linha {row} e coluna {col} já ocupada.");
+
                     else break;
                 }
 
@@ -55,7 +58,7 @@ namespace JogoVelha_Avaliativo
 
         static void MostrarGame(char[,] game)
         {
-            Console.WriteLine("-----------------------");
+            Console.WriteLine("-------------------------");
 
             // Mostra a Matriz desejada
             Console.WriteLine($"O jogo está assim:");
@@ -71,28 +74,25 @@ namespace JogoVelha_Avaliativo
 
         static bool Winner(char player, char[,] game)
         {
+            // Verificar linhas
             for (int row = 0; row < game.GetLength(0); row++)
-            {
-                for (int col = 0; col < game.GetLength(1); col++)
-                {
-                    // Verifica linhas
-                    if (game[row, 0] == player && game[row, 1] == player && game[row, 2] == player)
-                        return true;
+                if (game[row, 0] == player && game[row, 1] == player && game[row, 2] == player)
+                    return true;
 
-                    // Verifica colunas
-                    else if (game[0, col] == player && game[1, col] == player && game[2, col] == player)
-                        return true;
+            // Verificar colunas
+            for (int col = 0; col < game.GetLength(1); col++)
+                if (game[0, col] == player && game[1, col] == player && game[2, col] == player)
+                    return true;
 
-                    // Verificar 1º diagonal
-                    else if (game[0, 0] == player && game[1, 1] == player && game[2, 2] == player)
-                        return true;
+            // Verificar 1º diagonal
+            else if (game[0, 0] == player && game[1, 1] == player && game[2, 2] == player)
+                return true;
 
-                    // Verificar 2º diagonal
-                    else if (game[0, 2] == player && game[1, 1] == player && game[2, 0] == player)
-                        return true;
-                }
-            }
-            return false;
+            // Verificar 2º diagonal
+            else if (game[0, 2] == player && game[1, 1] == player && game[2, 0] == player)
+                return true;
+
+            return false; // Retorna falso caso ninguém venceu
         }
 
         static bool Draw(char[,] game)
@@ -122,22 +122,22 @@ namespace JogoVelha_Avaliativo
             {
                 MostrarGame(game);
                 LerPosicaoJogador((player == 'X') ? 1 : 2, game);
-                if (Winner((player == 'X') ? 'O' : 'X', game))
+                if (Winner(player, game))
                 {
-                    if (player == 'X')
-                        Console.WriteLine("Vencedor: 1º Jogador!");
-                    else if (player == 'O')
-                        Console.WriteLine("Vencedor: 2º Jogador!");
-                    return;
+                    MostrarGame(game);
+                    Console.WriteLine($"Vencedor: {(player == 'X' ? 1 : 2)}º Jogador");
+                    break;
                 }
                 else if (Draw(game))
                 {
+                    MostrarGame(game);
                     Console.WriteLine("Empate!!!");
                     break;
                 }
 
                 player = (player == 'X') ? 'O' : 'X';
             }
+
 
             // Caso queira reniciar o jogo denovo
             Console.Write("\nDeseja reniciar o jogo (s - Sim | n - Não): ");
