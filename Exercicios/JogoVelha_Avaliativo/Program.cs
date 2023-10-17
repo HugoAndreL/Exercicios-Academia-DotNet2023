@@ -4,16 +4,27 @@
     {
         static void Main()
         {
-            // Pergunta se jogara com alguem ou com a maquina
-            ReniciarJogo();
+            // Pergunta se jogara com alguem ou com a máquina
+            Console.WriteLine("Multiplayer ou VS. maquina (1 - Multiplayer - M - Máquina)");
+            char swcth = char.Parse(Console.ReadLine());
+
+            // Verifica se jogará multiplayer ou vs. máquina
+            if (swcth == '1')
+                ReniciarJogo();
+            else
+            {
+                Console.WriteLine("Você é o player 1.");
+                ReniciarJogoMaquina();
+            }
         }
 
-        static void LerPosicaoJogador(int player, char[,] game)
+        static void LerPosicaoJogador(string player, char[,] game)
         {
             while (true)
             {
                 int row, col;
 
+                Console.WriteLine("Obs.: Player 1 - X, Player 2 - O");
                 Console.WriteLine($"----- Vez do Jogador {player} -----");
 
                 // Faz o loop de verificação da linha e coluna
@@ -39,9 +50,9 @@
                 }
 
                 // Verifica se é o player 1 ou 2
-                if (player == 1)
+                if (player == "1")
                     game[row - 1, col - 1] = 'X';
-                else if (player == 2)
+                else if (player == "2")
                     game[row - 1, col - 1] = 'O';
 
                 return;
@@ -50,8 +61,6 @@
 
         static void MostrarGame(char[,] game)
         {
-            Console.WriteLine("-------------------------");
-
             // Mostra o game
             Console.WriteLine($"O jogo está assim:");
 
@@ -109,13 +118,13 @@
                 { '-', '-', '-' }
             };
 
-            Console.WriteLine("----- Jogo da Velha -----");
-
             // Faz um loop para mostrar a vez de cada jogador
             for (int i = 0; i <= 9; i++)
             {
+                Console.Clear();
+                Console.WriteLine("##### Jogo da Velha #####");
                 MostrarGame(game);
-                LerPosicaoJogador((player == 'X') ? 1 : 2, game);
+                LerPosicaoJogador((player == 'X') ? "1" : "2", game);
                 if (Winner(player, game))
                 {
                     MostrarGame(game);
@@ -141,8 +150,13 @@
             if (swcth == 's' || swcth == 'S')
             {
                 Console.Clear();
-                ReniciarJogo();
+                Main();
             }
+        }
+
+        static void ReniciarJogoMaquina()
+        {
+            
         }
     }
 }
