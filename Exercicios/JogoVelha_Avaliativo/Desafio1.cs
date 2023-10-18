@@ -196,13 +196,17 @@
                 if (Winner('X', game))
                 {
                     MostrarGame(game);
-                    Console.WriteLine("Vencedor: Computador!");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Vencedor: Jogador!");
+                    Console.ResetColor();
                     break;
                 }
                 else if (Winner('O', game))
                 {
                     MostrarGame(game);
-                    Console.WriteLine("Vencedor: Jogador!");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Vencedor: Computador!");
+                    Console.ResetColor();
                     break;
                 }
 
@@ -216,7 +220,11 @@
 
         static void PC(char[,] game)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
+
             Console.WriteLine("Definindo a jogada da Máquina.");
+
+            Console.ResetColor();
             // Escolher aleatoriamente um dos cantos como primeira jogada
             Random rdm = new Random();
             int[] cantos = new int[2] { 0, 2 };
