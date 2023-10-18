@@ -157,6 +157,7 @@
             }
 
             Console.ResetColor(); // Redefini a cor da fonte
+            
             // Lê a entrada para reniciar o jogo
             Console.Write("\nDeseja reniciar o jogo (s - Sim | n - Não): ");
             char swcth = char.Parse(Console.ReadLine());
@@ -216,6 +217,17 @@
                     Console.WriteLine("Empate!");
                 }
             }
+
+            // Lê a entrada para reniciar o jogo
+            Console.Write("\nDeseja reniciar o jogo (s - Sim | n - Não): ");
+            char swcth = char.Parse(Console.ReadLine());
+
+            // Verifica se renicia o jogo
+            if (swcth == 's' || swcth == 'S')
+            {
+                Console.Clear();
+                Main();
+            }
         }
 
         static void PC(char[,] game)
@@ -225,6 +237,7 @@
             Console.WriteLine("Definindo a jogada da Máquina.");
 
             Console.ResetColor();
+
             // Escolher aleatoriamente um dos cantos como primeira jogada
             Random rdm = new Random();
             int[] cantos = new int[2] { 0, 2 };
@@ -244,7 +257,7 @@
                     if (game[row, col] == '-')
                     {
                         game[row, col] = 'O';
-                        return;
+                        break;
                     }
                 }
         }
