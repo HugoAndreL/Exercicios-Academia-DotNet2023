@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace JogoVelha_Avaliativo
+﻿namespace JogoVelha_Avaliativo
 {
     internal class Desafio1
     {
@@ -29,7 +27,11 @@ namespace JogoVelha_Avaliativo
                 int row, col;
 
                 Console.WriteLine("Obs.: Player 1 - X, Player 2 - O");
+
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"----- Vez do Jogador {pl} -----");
+
+                Console.ForegroundColor = ConsoleColor.White;
 
                 // Faz o loop de verificação da linha e coluna
                 while (true)
@@ -54,7 +56,7 @@ namespace JogoVelha_Avaliativo
                 }
 
                 // Verifica se é o player 1 ou 2
-                _ = (pl == 1) ? game[row - 1, col - 1] = 'X' : game[row - 1, col - 1] = 'O';
+                _ = (pl == 1) ? game[row - 1, col - 1] = ('X') : game[row - 1, col - 1] = 'O';
 
                 return;
             }
@@ -70,7 +72,17 @@ namespace JogoVelha_Avaliativo
             for (int i = 0; i < game.GetLength(0); i++)
             {
                 for (int j = 0; j < game.GetLength(1); j++)
-                    Console.Write((j == 0 ? " " : " | ") + game[i, j]);
+                {
+                    Console.Write(j == 0 ? " " : " | ");
+                    // Formatação de interface
+                    if (game[i, j] == 'X')
+                        Console.ForegroundColor = ConsoleColor.Green;
+                    else if (game[i, j] == 'O')
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    else Console.ResetColor();
+                    Console.Write(game[i, j]);
+                    Console.ResetColor();
+                }
 
                 Console.WriteLine();
                 Console.WriteLine(i == 2 ? "" : "---+---+---");
@@ -129,18 +141,22 @@ namespace JogoVelha_Avaliativo
                 if (Winner(pl, game))
                 {
                     MostrarGame(game);
+                    Console.Write("\n");
+                    _ = (pl == 'X' ? Console.ForegroundColor = ConsoleColor.Green : Console.ForegroundColor = ConsoleColor.Red);
                     Console.WriteLine($"Vencedor: {(pl == 'X' ? 1 : 2)}º Jogador");
                     break;
                 }
                 else if (Draw(game))
                 {
                     MostrarGame(game);
+                    Console.ForegroundColor = ConsoleColor.Magenta;
                     Console.WriteLine("Empate!!!");
                 }
 
                 pl = (pl == 'X') ? 'O' : 'X';
             }
 
+            Console.ResetColor(); // Redefini a cor da fonte
             // Lê a entrada para reniciar o jogo
             Console.Write("\nDeseja reniciar o jogo (s - Sim | n - Não): ");
             char swcth = char.Parse(Console.ReadLine());
@@ -153,6 +169,7 @@ namespace JogoVelha_Avaliativo
             }
         }
 
+        // Extra
         static void JogoPC()
         {
             char[,] game = new char[3, 3] {
