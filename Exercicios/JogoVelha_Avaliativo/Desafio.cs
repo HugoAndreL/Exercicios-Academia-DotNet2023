@@ -246,8 +246,8 @@ class Desafio
         else
             while (true)
             {
-                row = rdm.Next(3);
-                col = rdm.Next(3);
+                row = rdm.Next(0, 2);
+                col = rdm.Next(0, 2);
 
                 if (game[row, col] == '-')
                 {

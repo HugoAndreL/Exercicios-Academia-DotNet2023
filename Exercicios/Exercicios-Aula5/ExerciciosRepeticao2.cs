@@ -489,10 +489,10 @@
 
                 switch (sexo)
                 {
-                    case 'M' or 'm':
+                    case 'M':
                         m++;
                         break;
-                    case 'F' or 'f':
+                    case 'F':
                         f++;
                         break;
                 }
