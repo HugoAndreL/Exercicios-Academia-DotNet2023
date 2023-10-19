@@ -11,6 +11,7 @@
                 // Opção de escolha
                 Console.WriteLine("Selecione um Exercicio (Digite apenas o número do exercicio):\n" +
                     "-------------------------\n" +
+                    "0 = Desafio\n" +
                     "1 = Exercicio 1 - Aula 18\n" +
                     "2 = Exercicio 2 - Aula 18\n" +
                     "3 = Exercicio 3 - Aula 18\n" +
@@ -27,6 +28,9 @@
                 {
                     default:
                         Console.WriteLine("Opção inválida. Tente novamente.");
+                        break;
+                    case 0:
+                        Desafio("extra");
                         break;
                     case 1:
                         ex1(1);
@@ -330,10 +334,32 @@
             return $"A soma entre {n1} e {n2} é: {res}";
         }
 
-        static void Desafio()
+        static void Desafio(string extra)
         {
             // Desafio: Ler um vetor de inteiros com 10 elementos e passar por parâmetro para uma função que verifica e retorna o menor elemento do vetor.
+            Console.WriteLine($"***** Exercicio {extra} - Aula 18 *****");
 
+            int[] vet = new int[10];
+
+            Console.WriteLine($"Menor número: {Menor(vet)}");
+        }
+
+        static int Menor(int[] vetor)
+        {
+            int menor = int.MaxValue;
+
+            for (int i = 0; i < vet.Length; i++)
+            {
+                Console.Write($"Insira o {i + 1}º Valor: ");
+                vetor[i] = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("---------------------------------");
+
+                if (vetor[i] < menor)
+                    menor = vetor[i];
+            }
+
+            return menor;
         }
     }
 }
