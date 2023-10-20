@@ -1,10 +1,10 @@
 ﻿namespace Exercicios_Aula18
 {
-    internal class Program
+    internal class ExerciciosFuncoes1
     {
         static int[] vet = new int[10];
 
-        static void Main(string[] args)
+        static void Main()
         {
             while (true)
             {
@@ -246,7 +246,7 @@
             double celcius, convert;
             Console.Write("Digite o valor em Fahrenheit: ");
             celcius = double.Parse(Console.ReadLine());
-            convert = (celcius * 5 / 9) + 32;
+            convert = (celcius * (5 / 9)) + 32;
             Console.WriteLine($"A conversão é: {convert}º");
         }
 
@@ -325,12 +325,18 @@
             Console.Write("Escreva o 2º numero: ");
             int n2 = int.Parse(Console.ReadLine());
 
-            Console.WriteLine(Sum(n1, n2));
+            Console.WriteLine(Fatorial(n1, n2));
         }
 
-        static string Sum(int n1, int n2)
+        static string Fatorial(int n1, int n2)
         {
-            double res = n1 + n2;
+            double res = n1;
+            res = 1;
+
+            for (int i = 1; i <= n2; i++)
+            {
+                res *= i;
+            }
             return $"A soma entre {n1} e {n2} é: {res}";
         }
 
