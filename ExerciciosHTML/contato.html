@@ -1,0 +1,39 @@
+<!-- - Página "Contato": crie uma página "Contato" que inclua um formulário de contato básico com campos para nome, email e mensagem. Após clicar em enviar, será encaminhada para uma página onde aparecerá a mensagem que foi enviada e terá a possibilidade de voltar para a página inicial. -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empresa | Contato</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+  <header>
+    <h1>Empresa - Logo</h1>
+
+    <ul type="none">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="galeria.html">Galeria</a></li>
+    </ul>
+  </header>
+
+  <main>
+
+    <section class="contato">
+      <h3>Formulário de envio</h3>
+      <form name="contato" method="POST">
+        <b>Nome:</b> <input type="text" name="nome" placeholder="Insira seu nome" /><br>
+        <b>Email:</b> <input type="email" name="email" placeholder="Insira seu email" /><br>
+        <b>Senha:</b> <input type="password" name="password" placeholder="Insira sua senha" /><br>
+        <a href="sucesso.html" class="submit">Enviar</a>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <h3>Empresa - Logo © 2023</h3>
+  </footer>
+</body>
+</html>
