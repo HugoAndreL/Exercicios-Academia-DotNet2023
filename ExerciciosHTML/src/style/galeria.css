@@ -1,0 +1,33 @@
+#figuras {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 15px;
+}
+
+.figuras {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+}
+
+main {
+  text-align: center;
+}
+
+figcaption {
+  font-size: small;
+  color: #333;
+  text-align: center;
+}
+
+#sites img {
+  width: 100px;
+  margin-right: 15px;
+}
+
+#sites {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

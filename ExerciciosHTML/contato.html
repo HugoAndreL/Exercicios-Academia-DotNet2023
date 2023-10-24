@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Empresa | Contato</title>
-  <link rel="stylesheet" href="style.css" type="text/css">
+  <link rel="stylesheet" href="src/style/style.css" type="text/css" />
+  <link rel="stylesheet" href="src/style/contato.css" type="text/css" />
 </head>
 <body>
   <header>
@@ -13,23 +14,19 @@
 
     <ul type="none">
       <li><a href="index.html">Início</a></li>
-      <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="galeria.html">Galeria</a></li>
+      <li><a class href="sobre.html">Sobre</a></li>
+      <li><a class="nav" href="galeria.html">Galeria</a></li>
     </ul>
   </header>
 
-  <main>
-
-    <section class="contato">
-      <h3>Formulário de envio</h3>
+  <main class="form">
+      <h2 class="title-form">Formulário de envio</h2>
       <form name="contato" method="POST">
         <b>Nome:</b> <input type="text" name="nome" placeholder="Insira seu nome" /><br>
         <b>Email:</b> <input type="email" name="email" placeholder="Insira seu email" /><br>
         <b>Senha:</b> <input type="password" name="password" placeholder="Insira sua senha" /><br>
-        <a href="sucesso.html" class="submit">Enviar</a>
+        <a href="sucesso.html" class="btn">Enviar</a>
       </form>
-    </section>
-
   </main>
 
   <footer>

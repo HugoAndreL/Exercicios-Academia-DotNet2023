@@ -1,0 +1,14 @@
+#hugo {
+  width: 150px;
+  border-radius: 30rem;
+  background-size: cover;
+}
+
+a#link {
+  color: #3685f0;
+}
+
+a#link:hover {
+  text-decoration: none;
+  color: #245aa3;
+}
