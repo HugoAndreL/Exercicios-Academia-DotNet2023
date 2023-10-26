@@ -1,0 +1,22 @@
+footer {
+  width: 100%;
+  height: 100px;
+  background-color: #21222b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 5px solid #191a21;
+  position: absolute;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer.scroll {
+  bottom: -1;
+}
+
+footer.normal {
+  bottom: 0;
+}
