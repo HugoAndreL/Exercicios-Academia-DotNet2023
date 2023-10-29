@@ -1,0 +1,14 @@
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosPOO1\bin\Debug\net6.0\ExerciciosPOO1.exe
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosPOO1\bin\Debug\net6.0\ExerciciosPOO1.deps.json
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosPOO1\bin\Debug\net6.0\ExerciciosPOO1.runtimeconfig.json
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosPOO1\bin\Debug\net6.0\ExerciciosPOO1.dll
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosPOO1\bin\Debug\net6.0\ExerciciosPOO1.pdb
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosPOO1\obj\Debug\net6.0\ExerciciosPOO1.GeneratedMSBuildEditorConfig.editorconfig
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosPOO1\obj\Debug\net6.0\ExerciciosPOO1.AssemblyInfoInputs.cache
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosPOO1\obj\Debug\net6.0\ExerciciosPOO1.AssemblyInfo.cs
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosPOO1\obj\Debug\net6.0\ExerciciosPOO1.csproj.CoreCompileInputs.cache
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosPOO1\obj\Debug\net6.0\ExerciciosPOO1.dll
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosPOO1\obj\Debug\net6.0\refint\ExerciciosPOO1.dll
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosPOO1\obj\Debug\net6.0\ExerciciosPOO1.pdb
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosPOO1\obj\Debug\net6.0\ExerciciosPOO1.genruntimeconfig.cache
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosPOO1\obj\Debug\net6.0\ref\ExerciciosPOO1.dll
