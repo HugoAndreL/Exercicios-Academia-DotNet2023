@@ -43,7 +43,7 @@
                         ex6();
                         break;
                     case 7:
-                        MultiMusic();
+                        ex7();
                         break;
                 }
                 Console.Write("Deseja limpar o console (S - Sim; N - Não): ");
@@ -58,34 +58,71 @@
             }
         }
 
-        private static void MultiMusic()
+        private static void ex7()
         {
-            //// Logo do Console Aplicativo
-            //Color(ConsoleColor.Green, "'  ___  ___        _  _    _ ___  ___             _           _____                            _       \r\n'  |  \\/  |       | || |  (_)|  \\/  |            (_)         /  __ \\                          | |      \r\n'  | .  . | _   _ | || |_  _ | .  . | _   _  ___  _   ___    | /  \\/  ___   _ __   ___   ___  | |  ___ \r\n'  | |\\/| || | | || || __|| || |\\/| || | | |/ __|| | / __|   | |     / _ \\ | '_ \\ / __| / _ \\ | | / _ \\\r\n'  | |  | || |_| || || |_ | || |  | || |_| |\\__ \\| || (__  _ | \\__/\\| (_) || | | |\\__ \\| (_) || ||  __/\r\n'  \\_|  |_/ \\__,_||_| \\__||_|\\_|  |_/ \\__,_||___/|_| \\___|(_) \\____/ \\___/ |_| |_||___/ \\___/ |_| \\___|\r\n' ");
-            //Console.WriteLine();
-            //// Cria uma playlist para usar no loop
-            //Playlist playlist = new();
-
-            //// Faz o loop verificando a opção
-            //while (true)
-            //{
-            //    Console.WriteLine("O que gostaria de fazer:\n" +
-            //        "1 = Adicionar Música na Playlist \n" +
-            //        "2 = Criar nova Playlist \n" +
-            //        "3 = Tocar Música \n");
-            //    int op = int.Parse(Console.ReadLine());
-            //    switch (op)
-            //    {
-            //        case 1:
-            //            playlist.AddMusic()
-            //    }
-            //    break;
-            //}
+            // Cria uma playlist para usar no loop
+            Playlist playlist = new();
+            Musica music1 = new Musica("Followers", "Area21", "Holywood Records");
+            Musica music2 = new Musica("Roaylty", "Egzod, Maestro Chives, Neoni", "NGS");
+            Musica music3 = new Musica("Not Over Yet", "KSI", "Warner Chapell Music");
+            playlist.AddMusica(music1);
+            playlist.AddMusica(music2);
+            playlist.AddMusica(music3);
+            playlist.TocarMusica();
         }
 
         private static void ex6()
         {
-            
+            // Cria uma Lista e uma Classe temporaria para o métodos do produto
+            Produto Prod = new();
+            List<Produto> Stock = new();
+
+            while (true)
+            {
+                Console.WriteLine("Selecione uma opçao (Digite apenas o número):\n" +
+                    "--------------------------\n" +
+                    "1 = Inserir produto\n" +
+                    "2 = Deletar produto\n" +
+                    "3 = Mostrar produto\n" +
+                    "4 = Buscar produto\n" +
+                    "--------------------------");
+                int op = int.Parse(Console.ReadLine());
+
+                Console.WriteLine();
+
+                switch (op)
+                {
+                    default:
+                        Console.WriteLine("Opção inválida. Tente novamente.");
+                        break;
+                    case 1:
+                        Prod.AddProd(Stock);
+                        break;
+                    case 2:
+                        Prod.DelProd(Stock);
+                        break;
+                    case 3:
+                        Prod.MostrarProd(Stock);
+                        break;
+                    case 4:
+                        Prod.BuscarProd(Stock);
+                        break;
+                }
+                Console.Write("Deseja limpar o console (S - Sim; N - Não): ");
+                char cls = char.Parse(Console.ReadLine());
+                if (cls == 'S' || cls == 's')
+                {
+                    Console.Clear();
+                    continue;
+                }
+                else
+                {
+                    Console.Write("Opção cancelada\n");
+                    Console.WriteLine($"Retornando à pagina de navegação.\n");
+                    continue;
+                }
+
+            }
 
         }
 
@@ -236,13 +273,12 @@
 
         private static void ex1()
         {
-            // Organizar
             List<Produto> Stock = new();
             Produto Prod = new();
             while (true)
             {
                 // Opção de escolha
-                Console.WriteLine("Selecione uma opção (Digite apenas o número do exercicio):\n" +
+                Console.WriteLine("Selecione uma opção (Digite apenas o número da opção):\n" +
                     "-------------------------\n" +
                     "1 = Inserir produto\n" +
                     "2 = Deletar produto\n" +
@@ -277,6 +313,7 @@
                 {
                     Console.Write("Opção cancelada\n");
                     Console.WriteLine($"Retornando à pagina de navegação.\n");
+                    continue;
                 }
             }
         }

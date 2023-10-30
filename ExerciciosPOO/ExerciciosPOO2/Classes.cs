@@ -2,16 +2,12 @@
 {
     internal class Produto
     {
-
         public int Id { get; set; }
         public string Name { get; set; }
         public double Preco { get; set; }
         public int QuantEstoque { get; set; }
 
-        public Produto()
-        {
-
-        }
+        public Produto() { }
 
         public Produto(int Id, string Name, double Preco, int QuantEstoque)
         {
@@ -45,7 +41,7 @@
 
                 // Quebra de linha
                 Console.WriteLine();
-                // Também é possivel desta forma Console.Write("\n");
+
 
                 Console.Write("Gostaria de adicionar mais um valor (s/n): ");
                 char op = char.Parse(Console.ReadLine());
@@ -96,6 +92,25 @@
             if (estoque.Count == 0)
                 Console.WriteLine("Não há produtos!");
         }
+        public void BuscarProd(List<Produto> estoque)
+        {
+            Console.WriteLine("Insira o id do Imóvel: \n");
+
+            int id = int.Parse(Console.ReadLine());
+
+            Console.WriteLine();
+
+            foreach (Produto prod in estoque)
+                if (prod.Id == id)
+                {
+                    Console.WriteLine("O telefone buscado foi o:");
+                    Console.WriteLine("------------------------------");
+                    Console.WriteLine("Código: " + prod.Id);
+                    Console.WriteLine("Nome: " + prod.Name);
+                    Console.WriteLine("Preço: " + prod.Preco);
+                    Console.WriteLine("Quantidade em estoque: " + prod.QuantEstoque);
+                }
+        }
     }
 
     internal class RegistroCompras
@@ -140,6 +155,7 @@
                 Console.WriteLine();
             }
         }
+
     }
 
     internal class CorretoraImoveis
@@ -147,7 +163,7 @@
         public CorretoraImoveis() { }
 
         public int Id { get; set; }
-        public string End { get; set;  }
+        public string End { get; set; }
         public double Preco { get; set; }
         public string Tipo { get; set; }
 
@@ -188,8 +204,8 @@
                 }
                 else
                     Console.WriteLine("Opção cancelada. Retornando à pagina de titulo.\n");
-                    // Retorna ao seleção de exercicios 
-                    return;
+                // Retorna ao seleção de exercicios 
+                return;
             }
         }
 
@@ -207,7 +223,7 @@
         }
 
         internal void ApresentarImoveis(List<CorretoraImoveis> corretoraImoveis)
-        { 
+        {
             foreach (CorretoraImoveis ci in corretoraImoveis)
             {
                 Console.WriteLine("Id do Imóvel: " + ci.Id);
@@ -283,9 +299,7 @@
                 Console.Write("Gostaria de adicionar mais um valor (s/n): ");
                 char op = char.Parse(Console.ReadLine());
                 if (op == 's' || op == 'S')
-                {
                     continue;
-                }
                 else
                     Console.WriteLine("Opção cancelada. Retornando à pagina de titulo.\n");
                 // Retorna ao menu 
@@ -352,10 +366,7 @@
 
     internal class GerenciadorTarefas
     {
-        public GerenciadorTarefas()
-        {
-            
-        }
+        public GerenciadorTarefas() { }
 
         public int Id { get; set; }
         public string Desc { get; set; }
@@ -387,7 +398,7 @@
 
                 if (DiaHoje())
                     sw = true;
-                        
+
                 GerenciadorTarefas tarefa = new(Id, Desc, DatVenc, sw);
                 gerenciadorTarefas.Add(tarefa);
 
@@ -451,60 +462,41 @@
         }
     }
 
-    //internal class 
+    internal class Musica
+    {
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public string Autor { get; set; }
+        public string Gravadora { get; set; }
 
-    //internal class Musica
-    //{
-    //    public int Id { get; set; }
-    //    public string Nome { get; set; }
-    //    public string Autor { get; set; }
-    //    public string Gravadora { get; set; }
+        public Musica(string Nome, string Autor, string Gravadora)
+        {
+            this.Nome = Nome;
+            this.Autor = Autor;
+            this.Gravadora = Gravadora;
+        }
+    }
 
-    //    class Playlist
-    //    {
-    //        public string Nome;
-    //        public List<Musica> Musicas { get; set; }
-    //        public string donoPlaylist { get; set; }
+    class Playlist
+    {
+        public List<Musica> Musicas { get; set; } = new List<Musica>();
+        public string DonoPlaylist = Environment.UserName;
 
-    //        public Playlist()
-    //        {
-            
-    //        }
+        public Playlist() { }
 
-    //        // Randomiza a musica
-    //        public void Random()
-    //        {
-    //            // Criando uma vetor para as musicas aletorias e um random para randomizar as musicas
-    //            Musica[] music = new Musica[9];
-    //            Random rdn = new();
-    //            // Faz um loop para colocar a musica atual no comando
-    //            while (true)
-    //            {
-    //                // Exibe o nome da musica
-    //                Console.WriteLine(music[rdn.Next(9)].Nome);
-    //            }
-    //        }
+        public void TocarMusica()
+        {
+            Random rdn = new();
+            Musica musica = Musicas[rdn.Next(Musicas.Count)];
+            Console.WriteLine("Reprodução: " + musica.Nome + " de " + musica.Autor);
+        }
 
-    //        public void AddMusica(int id, Playlist playlist)
-    //        {
-    //            // Faz um loop para pegar a musica
-    //            foreach (Musica music in Musicas)
-    //            {
-    //                if (music.Id == id)
-    //                {
-    //                    Musica musica = new();
-    //                }
-    //            }
-
-    //            // Pergunta se quer adicionar a determinada música na playlist
-    //            Console.WriteLine("Deseja adicionar a Musica " + musica.Nome + " na playlist " + this.Nome + " (s/n): ");
-    //            char sw = char.Parse(Console.ReadLine());
-    //            // Caso a resposta for sim, essa musica será adicionada na playlist
-    //            if (sw == 's' || sw == 'S')
-    //            {
-    //                playlist.Musicas.Add(musica);
-    //                Console.WriteLine("Musica" + musica.Nome + " adicionada na playlist " + this.Nome + " com sucesso!");
-    //            }
-            //}
-        //}
+        public void AddMusica(Musica musicaAdd)
+        {
+            Console.WriteLine("Gostaria de adicionar a musica " + musicaAdd.Nome + " em sua playlist? (s/n)");
+            char op = char.Parse(Console.ReadLine());
+            if (op == 's' || op == 'S')
+                Musicas.Add(musicaAdd);
+        }
+    }
 }
