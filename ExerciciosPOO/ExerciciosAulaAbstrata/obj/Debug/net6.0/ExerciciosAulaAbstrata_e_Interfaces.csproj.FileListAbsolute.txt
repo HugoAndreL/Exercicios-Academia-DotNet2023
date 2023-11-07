@@ -1,0 +1,14 @@
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosAulaAbstrata\bin\Debug\net6.0\ExerciciosAulaAbstrata_e_Interfaces.exe
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosAulaAbstrata\bin\Debug\net6.0\ExerciciosAulaAbstrata_e_Interfaces.deps.json
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosAulaAbstrata\bin\Debug\net6.0\ExerciciosAulaAbstrata_e_Interfaces.runtimeconfig.json
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosAulaAbstrata\bin\Debug\net6.0\ExerciciosAulaAbstrata_e_Interfaces.dll
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosAulaAbstrata\bin\Debug\net6.0\ExerciciosAulaAbstrata_e_Interfaces.pdb
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosAulaAbstrata\obj\Debug\net6.0\ExerciciosAulaAbstrata_e_Interfaces.GeneratedMSBuildEditorConfig.editorconfig
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosAulaAbstrata\obj\Debug\net6.0\ExerciciosAulaAbstrata_e_Interfaces.AssemblyInfoInputs.cache
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosAulaAbstrata\obj\Debug\net6.0\ExerciciosAulaAbstrata_e_Interfaces.AssemblyInfo.cs
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosAulaAbstrata\obj\Debug\net6.0\ExerciciosAulaAbstrata_e_Interfaces.csproj.CoreCompileInputs.cache
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosAulaAbstrata\obj\Debug\net6.0\ExerciciosAulaAbstrata_e_Interfaces.dll
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosAulaAbstrata\obj\Debug\net6.0\refint\ExerciciosAulaAbstrata_e_Interfaces.dll
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosAulaAbstrata\obj\Debug\net6.0\ExerciciosAulaAbstrata_e_Interfaces.pdb
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosAulaAbstrata\obj\Debug\net6.0\ExerciciosAulaAbstrata_e_Interfaces.genruntimeconfig.cache
+C:\workspace\Exercicios-Academia-DotNet2023-master\ExerciciosPOO\ExerciciosAulaAbstrata\obj\Debug\net6.0\ref\ExerciciosAulaAbstrata_e_Interfaces.dll
