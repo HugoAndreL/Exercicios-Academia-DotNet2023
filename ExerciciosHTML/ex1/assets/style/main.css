@@ -1,0 +1,175 @@
+main {
+  margin: 0 10rem;
+}
+
+main#main-gal {
+  display: flex;
+  justify-content: space-between;
+}
+
+img {
+  width: 80px;
+}
+
+#banner {
+  height: 300px;
+  background-image: url('https://wallpapercave.com/wp/wp7890695.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#content {
+  width: 100%;
+  height: 300px;
+  background-color: #00000080;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 3rem;
+}
+
+p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 10px 0;
+  text-indent: 20px;
+}
+
+fieldset#form {
+  margin: 15px auto;
+  width: 300px;
+  height: 300px;
+  background: transparent;
+  border: 3px double #d6acfc;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.btn {
+  width: 274px;
+  padding: 10px 0;
+  background-color: #fe7ac4;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #fe7ac5cc;
+}
+
+.btn:active {
+  background-color: #fe7ac57e;
+}
+
+input {
+  background-color: #606681;
+  border: 2px solid lightblue;
+  padding: 5px 8px;
+  border-radius: 30px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+input::placeholder {
+  color: lightblue;
+}
+
+img#hugo {
+  width: 100px;
+  background-size: cover;
+  border-radius: 50px;
+}
+
+hr {
+  margin: 10px 0;
+  border-color: #d6acfc;
+}
+
+h2 {
+  margin: 15px 0;
+}
+
+p a {
+  color: #55f985;
+  text-decoration: none;
+}
+
+a.a-btn {
+  padding: 5px 10px;
+  background-color: #fe7ac4;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a.a-btn:hover {
+  background-color: #fe7ac59c;
+}
+
+a.a-btn:active {
+  background-color: #fe7ac567;
+}
+
+.imgs {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+}
+
+.imgs img {
+  margin: 10px;
+}
+
+fieldset.galeria {
+  height: 310px;
+  margin: 10px 5px;
+  padding: 0 10px;
+  text-align: end;
+}
+
+p.titulo {
+  text-align: start;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  text-indent: 0;
+}
+
+table {
+  margin: 10px 0;
+  text-align: center;
+  border-color: #d6acfc;
+}
+
+td, th {
+  padding: 5px;
+}
+
+td, td b {
+  background-color: #fe7ac4;
+  color: #32333c;
+}
+
+th {
+  color: #fe7ac4;
+  background-color: #32333c;
+}
+
+fieldset {
+  background-color: #606681;
+  border-color: #d6acfc;
+}
+
+fieldset#tabela {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

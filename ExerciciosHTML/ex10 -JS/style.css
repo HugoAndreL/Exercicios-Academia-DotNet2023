@@ -1,0 +1,67 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: gray;
+}
+
+form {
+  width: 600px;
+  height: 90%;
+  background-color: #282a35;
+  border: 3px solid #161699;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  background-color: #161699;
+  margin-top: 0;
+  text-align: center;
+}
+
+label {
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  background-color: #161699;
+  border: 3px solid #141470;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  width: 350px;
+}
+
+input#fisica, input#juridica {
+  width: 30px;
+}
+
+button {
+  padding: 10px 0;
+  border: 3px solid #141470;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #161699;
+  color: white;
+  width: 550px;
+  margin: 10px auto;
+}
+  
+button:disabled {
+  cursor: default;
+  border: none;
+  background-color: #16169970;
+  color: #ffffff70;
+}
