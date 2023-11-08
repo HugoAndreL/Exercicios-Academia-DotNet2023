@@ -1,0 +1,40 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: gray;
+}
+
+form {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+button#btnRed {
+  background-color: #cc0000;
+}
+
+button#btnGreen {
+  background-color: #00cc00;
+}
+
+button#btnBlue {
+  background-color: #0000cc;
+}
+
+button#btnYellow {
+  background-color: #cccc00;
+}
