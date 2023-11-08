@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UCAcademy | Contato</title>
+  <link rel="stylesheet" href="../assets/style/style.css" type="text/css">
+  <link rel="stylesheet" href="../assets/style/header.css" type="text/css">
+  <link rel="stylesheet" href="../assets/style/main.css">
+  <link rel="stylesheet" href="../assets/style/footer.css" type="text/css">
+</head>
+<body>
+  <header>
+    <h1 class="logo">
+      <span class="lightblue">U</span><span class="green">C</span>Academy<span class="pink">__</span>
+    </h1>
+
+    <nav>
+      <ul type="none">
+        <li><a class="nav" href="../index.html">Home</a></li>
+        <li><a class="nav" href="sobre.html">Sobre nós</a></li>
+        <li><a class="nav" href="galeria.html">Galeria</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <fieldset id="form">
+      <div>
+        Nome: <input type="text" name="nome" placeholder="Digite seu nome" />
+        Email: <input type="email" name="email" placeholder="Digite seu email" />
+        Senha: <input type="password" name="senha" placeholder="Insira sua senha" />
+      </div>
+      <div>
+        <button class="btn" onclick="aletar()">Enviar</button>
+      </div>
+    </fieldset>
+  </main>
+
+  <footer class="normal">
+    <b>Site by <span class="green">Hugo André</span>, <a href="https://site.ufn.edu.br/" class="lightblue" target="_blank">UFN</a> © 2023</b>
+  </footer>
+  <script>
+    function aletar() {
+      alert("Mensagem enviada com sucesso! Muito obrigado!");
+    }
+  </script>
+</body>
+</html>
