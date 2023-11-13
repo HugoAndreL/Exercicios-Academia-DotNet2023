@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Kgn0RSEhfiRZ1I5sM22ba6rjjDHy2x8T9r9nqTsSOQ0qKghFC8evzjxF7SwsAKyJuJIvVpEff32vP4mnAaGWCQ==",
+  "success": true,
+  "projectFilePath": "C:\\workspace\\Exercicios-Academia-DotNet2023-master\\ExerciciosWindowsForms\\ex1\\Amigo Secreto\\Amigo Secreto\\Amigo Secreto.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hugoa\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
