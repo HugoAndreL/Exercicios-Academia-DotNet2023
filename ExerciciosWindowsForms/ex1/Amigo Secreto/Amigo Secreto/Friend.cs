@@ -14,16 +14,16 @@
         }
 
         // Créditos ao canal Alexandre Zamberlan. Video https://www.youtube.com/watch?v=JgBqsIffWdU&list=LL&index=3
-        // Função para serializar/escrever um json
-        public void Serializar(string dados)
+        // Função para escrever um json
+        public void Escrever(string dados)
         {
             StreamWriter writter = new("pessoas.csv", true);
             writter.WriteLine(dados);
             writter.Close();
         }
 
-        // Função para desserializar/ler um json
-        public List<Friend> Desserializar(List<Friend> lstF)
+        // Função para ler um json
+        public List<Friend> Ler(List<Friend> lstF)
         {
             StreamReader readder = new("pessoas.csv");
             while (!readder.EndOfStream)
