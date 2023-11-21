@@ -2,8 +2,6 @@ namespace Amigo_Secreto
 {
     public partial class frmAmigoSecreto : Form
     {
-        string path = "C:\\workspace\\Exercicios-Academia-DotNet2023-master\\ExerciciosWindowsForms\\ex1";
-        string file = "pessoas.json";
         List<Friend> lstFriends = new();
         Friend fMet = new();
         int i = 0;
@@ -63,7 +61,7 @@ namespace Amigo_Secreto
 
         private void About(object sender, EventArgs e)
         {
-            MessageBox.Show("Projeto feito por Hugo André para a Academia DotNet2023", "SOBRE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Projeto feito por Hugo AndrÃ© para a Academia DotNet2023", "SOBRE", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private string GerarEmail()
