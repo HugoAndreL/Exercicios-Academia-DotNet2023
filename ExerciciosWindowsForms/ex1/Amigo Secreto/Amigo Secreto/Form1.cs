@@ -9,7 +9,7 @@ namespace Amigo_Secreto
         public frmAmigoSecreto()
         {
             InitializeComponent();
-            lstFriends = fMet.Desserializar(lstFriends);
+            lstFriends = fMet.Ler(lstFriends);
             dgvLst.DataSource = lstFriends;
 
             // Atualiza o contador
@@ -48,7 +48,7 @@ namespace Amigo_Secreto
                 dgvLst.DataSource = null;
                 dgvLst.DataSource = lstFriends;
 
-                f.Serializar($"{tbName.Text};{GerarEmail()}");
+                f.Escrever($"{tbName.Text};{GerarEmail()}");
 
                 // Limpa o input
                 tbName.Clear();
