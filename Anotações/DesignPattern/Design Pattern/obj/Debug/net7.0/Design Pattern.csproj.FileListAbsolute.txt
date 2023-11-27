@@ -1,0 +1,14 @@
+C:\workspace\Anotações\DesignPattern\Design Pattern\obj\Debug\net7.0\Design Pattern.GeneratedMSBuildEditorConfig.editorconfig
+C:\workspace\Anotações\DesignPattern\Design Pattern\obj\Debug\net7.0\Design Pattern.AssemblyInfoInputs.cache
+C:\workspace\Anotações\DesignPattern\Design Pattern\obj\Debug\net7.0\Design Pattern.AssemblyInfo.cs
+C:\workspace\Anotações\DesignPattern\Design Pattern\obj\Debug\net7.0\Design Pattern.csproj.CoreCompileInputs.cache
+C:\workspace\Anotações\DesignPattern\Design Pattern\bin\Debug\net7.0\Design Pattern.exe
+C:\workspace\Anotações\DesignPattern\Design Pattern\bin\Debug\net7.0\Design Pattern.deps.json
+C:\workspace\Anotações\DesignPattern\Design Pattern\bin\Debug\net7.0\Design Pattern.runtimeconfig.json
+C:\workspace\Anotações\DesignPattern\Design Pattern\bin\Debug\net7.0\Design Pattern.dll
+C:\workspace\Anotações\DesignPattern\Design Pattern\bin\Debug\net7.0\Design Pattern.pdb
+C:\workspace\Anotações\DesignPattern\Design Pattern\obj\Debug\net7.0\Design Pattern.dll
+C:\workspace\Anotações\DesignPattern\Design Pattern\obj\Debug\net7.0\refint\Design Pattern.dll
+C:\workspace\Anotações\DesignPattern\Design Pattern\obj\Debug\net7.0\Design Pattern.pdb
+C:\workspace\Anotações\DesignPattern\Design Pattern\obj\Debug\net7.0\Design Pattern.genruntimeconfig.cache
+C:\workspace\Anotações\DesignPattern\Design Pattern\obj\Debug\net7.0\ref\Design Pattern.dll
