@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KtiF8gWKVPoXQUhQ0KuCqIiy61X/RD/Hw9+FZdgDscIRXPYPhYGiYl7jppuMBE97ITtrT+Z7IT/YF6lDcYQy3A==",
+  "dgSpecHash": "bGiu84OldMlCn2OTQIVP10/sdLANUJ7TMj992+Na9HGw0UvZVI/JNY+x+IpaH5u0m1lzueU1XYFqN7ae8KdTNQ==",
   "success": true,
-  "projectFilePath": "C:\\workspace\\MiniERP\\MiniERP\\MiniERP.csproj",
+  "projectFilePath": "C:\\workspace\\Exercicios-Academia-DotNet2023-master\\ExerciciosADONET\\MiniERP\\MiniERP\\MiniERP.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hugoa\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\hugoa\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

@@ -7,5 +7,8 @@
     <Compile Update="Forn.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Prod.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

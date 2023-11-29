@@ -475,11 +475,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\workspace\\MiniERP\\MiniERP\\MiniERP.csproj",
+      "projectUniqueName": "C:\\workspace\\Exercicios-Academia-DotNet2023-master\\ExerciciosADONET\\MiniERP\\MiniERP\\MiniERP.csproj",
       "projectName": "MiniERP",
-      "projectPath": "C:\\workspace\\MiniERP\\MiniERP\\MiniERP.csproj",
+      "projectPath": "C:\\workspace\\Exercicios-Academia-DotNet2023-master\\ExerciciosADONET\\MiniERP\\MiniERP\\MiniERP.csproj",
       "packagesPath": "C:\\Users\\hugoa\\.nuget\\packages\\",
-      "outputPath": "C:\\workspace\\MiniERP\\MiniERP\\obj\\",
+      "outputPath": "C:\\workspace\\Exercicios-Academia-DotNet2023-master\\ExerciciosADONET\\MiniERP\\MiniERP\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hugoa\\AppData\\Roaming\\NuGet\\NuGet.Config",

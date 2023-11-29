@@ -36,7 +36,7 @@
             label3 = new Label();
             label5 = new Label();
             tbDatCriacao = new TextBox();
-            tbDesc = new TextBox();
+            tbFunc = new TextBox();
             tbCNPJ = new TextBox();
             btnRead = new Button();
             btnSearch = new Button();
@@ -91,9 +91,9 @@
             label2.AutoSize = true;
             label2.Location = new Point(12, 137);
             label2.Name = "label2";
-            label2.Size = new Size(61, 15);
+            label2.Size = new Size(49, 15);
             label2.TabIndex = 4;
-            label2.Text = "Descrição:";
+            label2.Text = "Função:";
             // 
             // label3
             // 
@@ -120,13 +120,13 @@
             tbDatCriacao.Size = new Size(677, 23);
             tbDatCriacao.TabIndex = 9;
             // 
-            // tbDesc
+            // tbFunc
             // 
-            tbDesc.Location = new Point(79, 134);
-            tbDesc.Multiline = true;
-            tbDesc.Name = "tbDesc";
-            tbDesc.Size = new Size(709, 237);
-            tbDesc.TabIndex = 10;
+            tbFunc.Location = new Point(67, 137);
+            tbFunc.Multiline = true;
+            tbFunc.Name = "tbFunc";
+            tbFunc.Size = new Size(721, 237);
+            tbFunc.TabIndex = 10;
             // 
             // tbCNPJ
             // 
@@ -208,7 +208,7 @@
             Controls.Add(btnSearch);
             Controls.Add(btnRead);
             Controls.Add(tbCNPJ);
-            Controls.Add(tbDesc);
+            Controls.Add(tbFunc);
             Controls.Add(tbDatCriacao);
             Controls.Add(label5);
             Controls.Add(label3);
@@ -236,7 +236,7 @@
         private Label label3;
         private Label label5;
         private TextBox tbDatCriacao;
-        private TextBox tbDesc;
+        private TextBox tbFunc;
         private TextBox tbCNPJ;
         private Button btnRead;
         private Button btnSearch;

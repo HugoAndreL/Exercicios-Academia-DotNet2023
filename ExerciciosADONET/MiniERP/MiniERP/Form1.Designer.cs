@@ -30,6 +30,7 @@
         {
             label1 = new Label();
             btnForn = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -45,22 +46,36 @@
             // 
             // btnForn
             // 
-            btnForn.Location = new Point(640, 116);
+            btnForn.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            btnForn.Location = new Point(12, 120);
             btnForn.Name = "btnForn";
             btnForn.Size = new Size(148, 77);
             btnForn.TabIndex = 1;
             btnForn.Text = "Fornecedor";
             btnForn.UseVisualStyleBackColor = true;
-            btnForn.Click += btnNavigateFunc;
+            btnForn.Click += NavigateFunc;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(194, 120);
+            button1.Name = "button1";
+            button1.Size = new Size(148, 77);
+            button1.TabIndex = 2;
+            button1.Text = "Produto";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += NavigateProd;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 209);
+            Controls.Add(button1);
             Controls.Add(btnForn);
             Controls.Add(label1);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();
@@ -70,5 +85,6 @@
 
         private Label label1;
         private Button btnForn;
+        private Button button1;
     }
 }

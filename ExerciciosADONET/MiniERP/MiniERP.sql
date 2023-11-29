@@ -14,18 +14,24 @@ descricao VARCHAR(50) NULL,
 datCriacao DATETIME NULL;
 
 ALTER TABLE Fornecedores
+ALTER COLUMN descricao TEXT NULL;
+
+EXEC sp_rename 'Fornecedores.descricao', 'funcao', 'COLUMN';
+
+ALTER TABLE Fornecedores
 ALTER COLUMN datCriacao VARCHAR(10) NULL;
 
 CREATE TABLE [Produtos] (
 	id INTEGER NOT NULL PRIMARY KEY IDENTITY,
 	nome VARCHAR(30) NOT NULL,
-	fk_forn INTEGER NOT NULL
+	fk_forn INTEGER NOT NULL,
 
 	FOREIGN KEY (fk_forn) REFERENCES Fornecedores(id)
 );
 
 ALTER TABLE [Produtos] 
-ADD preco DECIMAL NOT NULL;
+ADD preco INTEGER NOT NULL,
+descricao TEXT NOT NULL;
 
 CREATE TABLE [Clients] (
 	id INTEGER NOT NULL PRIMARY KEY IDENTITY,

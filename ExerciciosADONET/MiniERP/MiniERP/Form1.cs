@@ -7,10 +7,16 @@ namespace MiniERP
             InitializeComponent();
         }
 
-        private void btnNavigateFunc(object sender, EventArgs e)
+        private void NavigateFunc(object sender, EventArgs e)
         {
             Forn newFunc = new();
-            newFunc.ShowDialog();
+            newFunc.Show();
+        }
+
+        private void NavigateProd(object sender, EventArgs e)
+        {
+            Prod prod = new();
+            prod.Show();
         }
     }
 }
