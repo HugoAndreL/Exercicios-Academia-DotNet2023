@@ -11,3 +11,4 @@
 - [Exercicios em SQL](https://github.com/HugoAndreL/Exercicios-Academia-DotNet2023/releases/tag/sql)
 - [Exercicios em Windows Forms](https://github.com/HugoAndreL/Exercicios-Academia-DotNet2023/releases/tag/windows-forms)
 - [Exercicios em ADO.NET (Produção)](https://github.com/HugoAndreL/Exercicios-Academia-DotNet2023/releases/tag/ado-net)
+- [Exercicios em EF Core](https://github.com/HugoAndreL/Exercicios-Academia-DotNet2023/releases/tag/ef-core)
