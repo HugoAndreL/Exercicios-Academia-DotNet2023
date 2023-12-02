@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercicio 9 - JS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section>
+    <form>
+      <h1>Login</h1>
+      <input type="text" name="login" id="login" placeholder="Digite seu nome" onchange="desabilitar()" />
+      <input type="password" name="password" id="password" placeholder="Inisra sua senha" onchange="desabilitar()" />
+      <input type="password" name="confirm" id="confirm" placeholder="Confirme sua senha" onchange="desabilitar()" />
+      <button disabled onclick="cadastrar()">Validar</button>
+    </form>
+  </section>
+  <script src="script.js"></script>
+</body>
+</html>

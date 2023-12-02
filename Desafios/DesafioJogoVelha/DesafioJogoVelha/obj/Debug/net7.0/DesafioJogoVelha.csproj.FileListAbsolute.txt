@@ -1,0 +1,14 @@
+C:\workspace\DesafioJogoVelha\DesafioJogoVelha\bin\Debug\net7.0\DesafioJogoVelha.exe
+C:\workspace\DesafioJogoVelha\DesafioJogoVelha\bin\Debug\net7.0\DesafioJogoVelha.deps.json
+C:\workspace\DesafioJogoVelha\DesafioJogoVelha\bin\Debug\net7.0\DesafioJogoVelha.runtimeconfig.json
+C:\workspace\DesafioJogoVelha\DesafioJogoVelha\bin\Debug\net7.0\DesafioJogoVelha.dll
+C:\workspace\DesafioJogoVelha\DesafioJogoVelha\bin\Debug\net7.0\DesafioJogoVelha.pdb
+C:\workspace\DesafioJogoVelha\DesafioJogoVelha\obj\Debug\net7.0\DesafioJogoVelha.GeneratedMSBuildEditorConfig.editorconfig
+C:\workspace\DesafioJogoVelha\DesafioJogoVelha\obj\Debug\net7.0\DesafioJogoVelha.AssemblyInfoInputs.cache
+C:\workspace\DesafioJogoVelha\DesafioJogoVelha\obj\Debug\net7.0\DesafioJogoVelha.AssemblyInfo.cs
+C:\workspace\DesafioJogoVelha\DesafioJogoVelha\obj\Debug\net7.0\DesafioJogoVelha.csproj.CoreCompileInputs.cache
+C:\workspace\DesafioJogoVelha\DesafioJogoVelha\obj\Debug\net7.0\DesafioJogoVelha.dll
+C:\workspace\DesafioJogoVelha\DesafioJogoVelha\obj\Debug\net7.0\refint\DesafioJogoVelha.dll
+C:\workspace\DesafioJogoVelha\DesafioJogoVelha\obj\Debug\net7.0\DesafioJogoVelha.pdb
+C:\workspace\DesafioJogoVelha\DesafioJogoVelha\obj\Debug\net7.0\DesafioJogoVelha.genruntimeconfig.cache
+C:\workspace\DesafioJogoVelha\DesafioJogoVelha\obj\Debug\net7.0\ref\DesafioJogoVelha.dll
