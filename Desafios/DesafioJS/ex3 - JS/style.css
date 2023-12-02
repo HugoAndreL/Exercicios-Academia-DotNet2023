@@ -1,0 +1,27 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#red {
+  color: coral;
+}
+
+#green {
+  background-color: lightgreen;
+}
+
+#blue {
+  background-color: lightblue;
+}
+
+#yellow {
+  background-color: yellow;
+}

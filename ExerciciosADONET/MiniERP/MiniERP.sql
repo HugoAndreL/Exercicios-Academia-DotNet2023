@@ -11,14 +11,14 @@ CREATE TABLE [Fornecedores] (
 ALTER TABLE [Fornecedores] 
 ADD cnpj INTEGER NOT NULL,
 descricao VARCHAR(50) NULL,
-datCriacao DATETIME NULL;
+datCriacao DATE NULL;
 
-ALTER TABLE Fornecedores
+ALTER TABLE [Fornecedores]
 ALTER COLUMN descricao TEXT NULL;
 
 EXEC sp_rename 'Fornecedores.descricao', 'funcao', 'COLUMN';
 
-ALTER TABLE Fornecedores
+ALTER TABLE [Fornecedores]
 ALTER COLUMN datCriacao VARCHAR(10) NULL;
 
 CREATE TABLE [Produtos] (
@@ -47,7 +47,7 @@ CREATE TABLE [nota_cliente] (
 	fk_clientId INTEGER NOT NULL
 );
 
-ALTER TABLE nota_cliente 
+ALTER TABLE [nota_cliente]
 ADD FOREIGN KEY (fk_notaId) REFERENCES Nota(id),
 FOREIGN KEY (fk_clientId) REFERENCES Clients(id);
 

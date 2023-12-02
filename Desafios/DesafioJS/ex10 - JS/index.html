@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercicio 10 - JS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section>
+    <form>
+      <h1>Cadastro</h1>
+      <label for="nome">Nome:
+        <input type="text" name="nome" id="nome" onchange="desabilitar()" />
+      </label>
+
+      <label id="pessoa" for="pessoa">Pessoa:
+        <input type="radio" name="pessoa" id="fisica" value="cpf" onchange="mostrarCampos(this); desabilitar()" />Física
+        <input type="radio" name="pessoa" id="juridica" value="cnpj" onchange="mostrarCampos(this); desabilitar()" />Juridica
+      </label>
+      
+      <label id="radCpf" for="cpf">CPF:
+        <input type="text" name="cpf" id="cpf" onchange="desabilitar()" />
+      </label>
+
+      <label id="radCnpj" for="cnpj">CNPJ:
+        <input type="text" name="cnpj" id="cnpj" onchange="desabilitar()" />
+      </label>
+        
+      <label for="dataNasc">Data de nascimento:
+        <input type="text" name="dataNasc" id="dataNasc" onchange="desabilitar()" />
+        <span></span>
+      </label>
+
+      <label for="endereco">Endereço:
+        <input type="text" name="endereco" id="endereco" onchange="desabilitar()" />
+      </label>
+
+      <label for="cep">CEP:
+        <input type="text" name="cep" id="cep" onchange="desabilitar()" />
+      </label>
+
+      <label for="telefone">Telefone:
+        <input type="text" name="telefone" id="tel" onchange="desabilitar()" />
+      </label>
+    
+      <label for="email">Email:
+        <input type="email" name="email" id="email" onchange="desabilitar()" />
+      </label>
+
+      <button onclick="cadastrar()" disabled>Validar</button>
+    </form>
+  </section>
+  <script src="script.js"></script>
+</body>
+</html>
